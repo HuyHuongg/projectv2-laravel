@@ -17,16 +17,18 @@
     <!-- Bundle -->
     <link rel="stylesheet" href="{{ asset('css/fe/bundle.min.css') }}">
     <!-- Plugin Css -->
-    <link rel="stylesheet" href="{{ asset('css/fe/') }}">
     <link rel="stylesheet" href="{{ asset('css/fe/jquery.fancybox.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/fe/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/fe/swiper.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/fe/cubeportfolio.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/fe/wow.css') }}">
     <link rel="stylesheet" href="{{ asset('css/fe/LineIcons.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/fe/') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="css/fe/LineIcons.min.css">
     <!-- Custom Css  -->
-    <link rel="stylesheet" href="{{ asset('css/fe/style.css') }}">
+    <link rel="stylesheet" href="{{asset('css/fe/LineIcons.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/fe/style.css')}}">
 </head>
 <body>
 
@@ -62,8 +64,8 @@
                 <div class="row justify-content-center">
                     <!-- START HEADER NAV   -->
                     <nav class="navbar navbar-expand  navbar-light bg-light">
-                        <a href="index-product.html"><img class="d-none d-lg-block" src="product\img\logo.png" class="manage-logo" alt="logo"></a>
-                        <h4 class="brand-logo d-block d-lg-none"> <a href="index-product.html"><img src="product\img\logo-white.png" alt="white-logo"></a></h4>
+                        <a href="{{ route('frontend.home') }}"><img class="d-none d-lg-block" src="{{ asset('images/img/logo.png') }}" class="manage-logo" alt="logo"></a>
+                        <h4 class="brand-logo d-block d-lg-none"> <a href="{{ route('frontend.home') }}"><img src="product\img\logo-white.png" alt="white-logo"></a></h4>
                         <div class="menu-tog d-block d-md-none" id="sidemenu_toggle1">
                             <span></span>
                             <span></span>
@@ -76,33 +78,14 @@
                                         ENG
                                     </a>
                                     <div class="dropdown-menu main_item_menu_sub sm-menu">
-                                        <a class="dropdown-item" href="#"><img src="product\img\flags\russia.jpg" alt="Russia">Russia</a>
-                                        <a class="dropdown-item" href="#"><img src="product\img\flags\french.jpg" alt="French">French</a>
-                                        <a class="dropdown-item" href="#"><img src="product\img\flags\spain.jpg" alt="spain">Spanish</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item main_item_menu dropdown dmenu d-none d-md-block">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop2" data-toggle="dropdown">
-                                        USD
-                                    </a>
-                                    <div class="dropdown-menu main_item_menu_sub sm-menu">
-                                        <a class="dropdown-item" href="#"><img src="product\img\flags\usd.png" alt="flag_usa">USD</a>
-                                        <a class="dropdown-item" href="#"><img src="product\img\flags\eur.png" alt="flag_eur">EUR</a>
-                                        <a class="dropdown-item" href="#"><img src="product\img\flags\aud.png" alt="flag_cad">CAD</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item main_item_menu dropdown dmenu d-none d-md-block">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop3" data-toggle="dropdown">
-                                        ACCOUNT
-                                    </a>
-                                    <div class="dropdown-menu main_item_menu_sub sm-menu">
-                                        <a class="dropdown-item" href="product\login.html">Login</a>
-                                        <a class="dropdown-item" href="product\registeration.html">Register</a>
+                                        <a class="dropdown-item" href="#"><img src="{{ asset('images/img\flags\russia.jpg') }}" alt="Russia">Russia</a>
+                                        <a class="dropdown-item" href="#"><img src="{{ asset('images/img\flags\french.jpg') }}" alt="French">French</a>
+                                        <a class="dropdown-item" href="#"><img src="{{ asset('images/img\flags\spain.jpg') }}" alt="spain">Spanish</a>
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown cart-item">
                                     <a href="#" class="nav-link" data-toggle="dropdown">
-                                        <i class="lni-cart"> <span class="badge badge-custom-setting">2</span></i>
+                                        <i class="fa-solid fa-cart-shopping"> <span class="badge badge-custom-setting">2</span></i>
                                     </a>
                                     <div class="dropdown-menu sm-menu mini-cart">
                                         <div class="mini-cart-header">
@@ -112,7 +95,7 @@
                                             <div class="inner-card">
                                                 <div class="media">
                                                     <div class="img-holder ml-1 mr-2">
-                                                        <img src="product\img\m1.jpg" class="align-self-center" alt="cartitem">
+                                                        <img src="{{ asset('images/img\m1.jpg') }}" class="align-self-center" alt="cartitem">
                                                     </div>
                                                     <div class="media-body mt-auto mb-auto">
                                                         <h5 class="name">Shoes</h5>
@@ -122,7 +105,7 @@
                                                 </div>
                                                 <div class="media">
                                                     <div class="img-holder ml-1 mr-2">
-                                                        <img src="product\img\m2.jpg" class="align-self-center" alt="cartitem">
+                                                        <img src="{{ asset('images/img\m2.jpg') }}" class="align-self-center" alt="cartitem">
                                                     </div>
                                                     <div class="media-body mt-auto mb-auto">
                                                         <h5 class="name">Shoes</h5>
@@ -132,7 +115,7 @@
                                                 </div>
                                                 <div class="media">
                                                     <div class="img-holder ml-1 mr-2">
-                                                        <img src="product\img\m1.jpg" class="align-self-center" alt="cartitem">
+                                                        <img src="{{ asset('images/img\m1.jpg') }}" class="align-self-center" alt="cartitem">
                                                     </div>
                                                     <div class="media-body mt-auto mb-auto">
                                                         <h5 class="name">Shoes</h5>
@@ -142,7 +125,7 @@
                                                 </div>
                                                 <div class="media">
                                                     <div class="img-holder ml-1 mr-2">
-                                                        <img src="product\img\m2.jpg" class="align-self-center" alt="cartitem">
+                                                        <img src="{{ asset('images/img\m2.jpg') }} class="align-self-center" alt="cartitem">
                                                     </div>
                                                     <div class="media-body mt-auto mb-auto">
                                                         <h5 class="name">Shoes</h5>
@@ -178,7 +161,7 @@
         <!--END HEADER -->
         <div class="row inner-product-sec">
             <div class="left-area">
-                <p class="d-none d-lg-block">© 2019 MegaOne.  Made by Themes Industry</p>
+                <p class="d-none d-lg-block"></p>
             </div>
             <div class="right-area">
                 <div id="particles"></div>
@@ -195,16 +178,17 @@
                             <div class="swiper-container" id="product-slider" style="overflow: hidden;">
                                 <div class="swiper-wrapper wow slideInLeft" data-wow-duration="2s">
                                     <div class="swiper-slide">
-                                        <a onclick="slide_window('model-window4');" style="cursor: pointer"><img src="product\img\featured_product.png" alt="featured product 4"></a>
+
+                                        <a onclick="slide_window('model-window4');" style="cursor: pointer"><img src="{{ asset('images/img/featured_product.png') }}" alt="featured product 4"></a></a>
                                     </div>
                                     <div class="swiper-slide">
-                                        <a onclick="slide_window('model-window4');" style="cursor: pointer"><img src="product\img\featured_product1.png" alt="featured product 4"></a>
+                                        <a onclick="slide_window('model-window4');" style="cursor: pointer"><img src="{{ asset('images/img/featured_product1.png') }}" alt="featured product 4"></a>
                                     </div>
                                     <div class="swiper-slide">
-                                        <a onclick="slide_window('model-window4');" style="cursor: pointer"><img src="product\img\featured_product2.png" alt="featured product 4"></a>
+                                        <a onclick="slide_window('model-window4');" style="cursor: pointer"><img src="{{ asset('images/img/featured_product2.png') }}" alt="featured product 4"></a>
                                     </div>
                                     <div class="swiper-slide">
-                                        <a onclick="slide_window('model-window4');" style="cursor: pointer"><img src="product\img\featured_product3.png" alt="featured product 4"></a>
+                                        <a onclick="slide_window('model-window4');" style="cursor: pointer"><img src="{{ asset('images/img/featured_product3.png') }}" alt="featured product 4"></a>
                                     </div>
                                 </div>
                                 <!-- Add Pagination -->
@@ -241,8 +225,8 @@
                                             <div class="item pr-2">
                                                 <a href="javascript:void(0)" onclick="open_model_window('model-window1');">
                                                     <div class="img-holder">
-                                                        <img src="product\img\item1.png" alt="items">
-                                                        <div class="plus"><i class="lni-plus"></i></div>
+                                                        <img src="{{ asset('images/img\item1.png') }}" alt="items">
+                                                        <div class="plus"><i class="fa-plus"></i></div>
                                                     </div>
                                                 </a>
                                                 <p class="text-center product-price">$103.00</p>
@@ -250,8 +234,8 @@
                                             <div class="item pr-2">
                                                 <a href="javascript:void(0)" onclick="open_model_window('model-window2');">
                                                     <div class="img-holder">
-                                                        <img src="product\img\item2.png" alt="items">
-                                                        <div class="plus"><i class="lni-plus"></i></div>
+                                                        <img src="{{ asset('images/img\item2.png') }}" alt="items">
+                                                        <div class="plus"><i class="fa-plus"></i></div>
                                                     </div>
                                                 </a>
                                                 <p class="text-center product-price">$103.00</p>
@@ -259,8 +243,8 @@
                                             <div class="item pr-2">
                                                 <a href="javascript:void(0);" onclick="open_model_window('model-window3');">
                                                     <div class="img-holder">
-                                                        <img src="product\img\item3.png" alt="items">
-                                                        <div class="plus"><i class="lni-plus"></i></div>
+                                                        <img src="{{ asset('images/img\item3.png') }}" alt="items">
+                                                        <div class="plus"><i class="fa-plus"></i></div>
                                                     </div>
                                                 </a>
                                                 <p class="text-center product-price">$103.00</p>
@@ -323,9 +307,10 @@
 
     <!--START OVERLAY MENU -->
     <div class="side-menu-nav">
-        <h1 class="sidenav-bg-text">MEGA ONE</h1>
+        <h1 class="sidenav-bg-text">SNEAKER STORE</h1>
         <div class="close-side-menu">
-            <i class="lni-close cross-sign" id="close-side-menu-nav"></i>
+            {{-- <i class="lni-close cross-sign" id="close-side-menu-nav"></i> --}}
+            <i class="fa-solid fa-xmark cross-sign" id="close-side-menu-nav"></i>
         </div>
         <nav>
             <ul class="side-bar">
@@ -407,7 +392,7 @@
                 <li><a href="#." class="linkdin_bg_hvr2 wow fadeInUp"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
                 <li><a href="#." class="instagram_bg_hvr2 wow fadeInDown"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
             </ul>
-            <p class="whitecolor text-center w-100 wow fadeInDown">&copy; 2019 MegaOne. Made With Love by <a class="web-link" href="http://www.themesindustry.com/" target="_blank">Themesindustry</a></p>
+            <p class="whitecolor text-center w-100 wow fadeInDown"> <a class="web-link" href="http://www.themesindustry.com/" target="_blank"></a></p>
         </div>
     </div>
     <!-- End OVERLAY Menu -->

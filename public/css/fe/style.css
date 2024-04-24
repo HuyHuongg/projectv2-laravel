@@ -774,7 +774,7 @@ header .container-setting .navbar-nav .cart-item .badge-custom-setting{
     position: absolute;
     right: 0%;
     top: 0%;
-    background-image: url("../img/particles.png");
+    background-image: url("{{ asset('images/img/particles.png') }}");
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -783,7 +783,7 @@ header .container-setting .navbar-nav .cart-item .badge-custom-setting{
     -webkit-animation: 10s panda infinite linear;
     animation: 10s panda infinite linear;
     animation-direction: alternate-reverse;
-    /*animation: move_bubbles 5s infinite alternate-reverse;*/
+    /* animation: move_bubbles 5s infinite alternate-reverse; */
 }
 
 @-webkit-keyframes panda {
@@ -1996,7 +1996,7 @@ header .container-setting .navbar-nav .cart-item .badge-custom-setting{
 
 .client-sec{
     /*background: url("../../portfolio/img/clients-banner.jpg");*/
-    background: url("../img/clients-banner.jpg");
+    background: url("{{ asset('images/img/clients-banner.jpg') }}");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -4008,8 +4008,8 @@ form.findus .form-control, form.findus textarea {
         transform: translate(-50%, -50%);
         opacity: 0.4;
     }
-
-    header i.lni-cart{
+    
+    header i.fa-cart-shopping{
         font-size: 18px;
         color: white;
         position: absolute;

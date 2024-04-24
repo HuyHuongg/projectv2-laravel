@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BackEnd\LoginController;
 use App\Http\Controllers\BackEnd\RegisterController;
@@ -84,3 +85,4 @@ Route::get('/order-details', function () {
     $orderDetails = OrderDetail::all();
     return view('order-details', ['orderDetails' => $orderDetails]);
 });
+Route::ANY('{catchall}', [PageController::class, 'notfound'])->where('catchall', '.*');
