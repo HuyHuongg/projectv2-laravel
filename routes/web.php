@@ -15,7 +15,7 @@ use App\Models\Product;
 // Frontend routes
 Route::get('/', [HomeFE::class, 'index'])->name('frontend.home');
 Route::get('/product', [HomeFE::class, 'product'])->name('frontend.product');
-Route::get('/about', [HomeFE::class, 'product'])->name('frontend.product');
+Route::get('/about', [HomeFE::class, 'product'])->name('frontend.about');
 Route::get('/blog', [HomeFE::class, 'blog'])->name('frontend.blog');
 Route::get('/productdetails', [HomeFE::class, 'productdetails'])->name('frontend.productdetails');
 Route::get('/product/{id}',  [HomeFE::class, 'show'])->name('frontend.productdetails');
