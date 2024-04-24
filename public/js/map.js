@@ -4,7 +4,7 @@ if ($("#map").length) {
         var mapOptions = {
             zoom: 16,
             scrollwheel: false,
-            center: new google.maps.LatLng(40.712775, -74.005973) //please add your location here
+            center: new google.maps.LatLng(80bcdb8f41097f0f ) //please add your location here
         };
         var map = new google.maps.Map(document.getElementById('map'),
             mapOptions);

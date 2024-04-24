@@ -53,6 +53,7 @@
     <script src="{{ asset('js/bundle.min.js') }}"></script>
 <!-- Plugin Js -->
 <script src="{{ asset('js/jquery.fancybox.min.js') }}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
 <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('js/swiper.min.js') }}"></script>
 <script src="{{ asset('js/jquery.cubeportfolio.min.js') }}"></script>

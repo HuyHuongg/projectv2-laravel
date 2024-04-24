@@ -20,7 +20,7 @@
                         <div class="col-sm-12 col-md-8 col-lg-12 box1 text-center order-2">
                             <div class="ribbon">
                                 <div class="wrap">
-                                    <span class="ribbon6">$ 150.00</span>
+                                    <span class="ribbon6">1.500.000 VND</span>
                                 </div>
                             </div>
                             <!-- Swiper-->
@@ -50,7 +50,7 @@
                             <h4 class="text-center text-lg-left"><span>Shoes</span> Shop</h4>
                             <p class="featured_description">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
                             <div class="button-1 rounded-pill">
-                                <a href="product\product-listing-light.html" class="rounded-pill">SHOP NOW </a>
+                                <a href="{{route('frontend.product')}}" class="rounded-pill">SHOP NOW </a>
                             </div>
                         </div>
                     </div>

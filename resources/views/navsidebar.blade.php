@@ -7,23 +7,10 @@
     <nav>
         <ul class="side-bar">
             <li class="nav-item main-item">
-                <a class="nav-link nav-appear" href="index-product.html">Home</a>
+                <a class="nav-link nav-appear" href="{{route('frontend.home')}}">Home</a>
             </li>
             <li class="nav-item active main-item">
-                <a class="nav-link nav-appear" id="demo1">Blog <i class="fas fa-caret-right forward"></i></a>
-                <div class="submenu-overlay">
-                    <ul class="d-flex justify-content-lg-center">
-                        <li class="nav-item d-flex align-items-center">
-                            <a class="sub-menu-nav-appear"><i class="fas fa-arrow-alt-circle-left go-back-btn"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link sub-menu-nav-appear" href="product\blog.html">Standard Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link sub-menu-nav-appear" href="product\single-blog.html">Single Blog</a>
-                        </li>
-                    </ul>
-                </div>
+                <a class="nav-link nav-appear"  id="demo1"  href="{{route('frontend.blog')}}">Blog</a>
             </li>
             <li class="nav-item main-item">
                 <a class="nav-link nav-appear" id="demo2">Products <i class="fas fa-caret-right forward"></i></a>
@@ -36,10 +23,10 @@
                             <a class="nav-link sub-menu-nav-appear" href="{{route('frontend.product')}}">Product</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link sub-menu-nav-appear" href="product\product-detail.html">Product Detail Version</a>
+                            <a class="nav-link sub-menu-nav-appear" href="#">Product Detail Version</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link sub-menu-nav-appear" href="product\shop-cart.html">Shopping Cart</a>
+                            <a class="nav-link sub-menu-nav-appear" href="{{route('frontend.addToCart')}}">Shopping Cart</a>
                         </li>
                     </ul>
                 </div>
@@ -52,19 +39,19 @@
                             <a class="sub-menu-nav-appear"><i class="fas fa-arrow-alt-circle-left go-back-btn"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link sub-menu-nav-appear" href="product\faq.html">FAQs</a>
+                            <a class="nav-link sub-menu-nav-appear" href="#">FAQs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link sub-menu-nav-appear" href="product\404.html">404</a>
+                            <a class="nav-link sub-menu-nav-appear" href="#">404</a>
                         </li>
                     </ul>
                 </div>
             </li>
             <li class="nav-item main-item">
-                <a class="nav-link nav-appear" href="product\about-us.html">About Us</a>
+                <a class="nav-link nav-appear" href="{{route('frontend.about')}}">About Us</a>
             </li>
             <li class="nav-item main-item">
-                <a class="nav-link nav-appear" href="product\contact-us.html">Contact Us</a>
+                <a class="nav-link nav-appear" href="{{route('frontend.contact')}}">Contact Us</a>
             </li>
         </ul>
     </nav>
