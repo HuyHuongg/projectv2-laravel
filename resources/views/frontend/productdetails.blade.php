@@ -75,7 +75,7 @@
     <div class="container bootdey">
         <div class="col-md-12">
             <section class="panel">
-                <div class="panel-body" style="width:100%; display:">
+                <div class="panel-body" style="width:100%">
                     <div class="col-md-6">
                         <div class="pro-img-details">
                             <img class="productimg" src="{{$productDetails->Image}}" alt="" style="width:400px">
