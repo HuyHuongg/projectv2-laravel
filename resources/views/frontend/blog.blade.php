@@ -43,7 +43,7 @@
                                         </ul>
                                     </div>
                                     <video id="player2" class="player2" preload="none" controls="" style="max-width:100%;" poster="{{ asset('images/img\shoes\thumnail-video.jpg') }}" playsinline="">
-                                        <source src="img\video\2.mp4" type="audio/mp3">
+                                        <source src="{{ asset('images/img\video\2.mp4') }}" type="audio/mp3">
                                     </video>
                                     <div class="post-content text-center text-lg-left">
                                         <p class="mt-4">Nam ut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis.</p>
@@ -185,7 +185,7 @@
                                         </div>
                                     </div>
                                     <div class="media">
-                                        <a href="{{ asset('images/img\shoes\blog-thumb3') }}.jpg"><img src="{{ asset('images/img\shoes\blog-thumb3.jpg') }}im" class="mr-3" alt="..."></a>
+                                        <a href="{{ asset('images/img\shoes\blog-thumb3.jpg') }}"><img src="{{ asset('images/img\shoes\blog-thumb3.jpg') }}" class="mr-3" alt="..."></a>
                                         <div class="media-body">
                                             <h5 class="mt-1">Standard Post With A Image Galary</h5>
                                             <p><span class="date">July 24,2019</span> | <span class="author">By</span><a href="#"> Mark Anderson</a></p>
