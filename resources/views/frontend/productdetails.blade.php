@@ -135,15 +135,14 @@
                                         </select>
                                         <div class="row product-quantity input_plus_mins no-gutters">
                                             <div class="qty col-12 col-lg-3 d-lg-flex align-items-lg-center d-inline-block">
-                                                <span class="minus bg-dark"><i class="lni-minus"></i></span>
-                                                <input type="number" class="count" name="qty" value="1" min="1" />
-                                                <span class="plus bg-dark"><i class="lni-plus"></i></span>
+                                                <input type="number" id="quantityInput" value="1" min="1" style="width: 70px; padding: 8px; border: 2px solid #007bff; border-radius: 5px;">
                                             </div>
                                             <div class="col-12 col-lg-9">
                                                 <a class="btn btn-small our-btn btn-gradient rounded-pill flex-grow-0 ml-lg-0" id="addToCartBtn">Add to Cart</a>
                                             </div>
-
                                         </div>
+
+
 
                                         <div class="dropdown-divider"></div>
 
@@ -435,69 +434,58 @@
             });
         });
 
-        // Khởi tạo mảng chứa các sản phẩm trong giỏ hàng từ localStorage
-        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-
-
-        let cartCounter = document.getElementById('cartCounter');
-        cartCounter.innerText = cartItems.length;
-
-        function addToCart(event) {
-            event.preventDefault(); // Ngăn chặn hành động mặc định của nút
-
-            // Lấy thông tin sản phẩm từ DOM
-            const productId = "{{ $productDetails->id }}";
-            const productName = "{{$productDetails->Name_sneaker }}";
-            const productPrice = "{{$productDetails->Price}}";
-            const selectedSize = document.getElementById('sizeSelect').value;
-            const productBrand = "{{$productDetails->Brand}}";
-            const productOrigin = "{{$productDetails->Origin}}";
-            const productColor = "{{$productDetails->Color}}";
-            const productImage = "{{$productDetails->Image}}"; // Lấy đường dẫn hình ảnh sản phẩm
-            const productQuantity = "{{$productDetails->Quantity}}"; // Lấy giá trị quantity từ input
-
-            if (productQuantity < 1) {
-                alert("Quantity must be greater than 1 or equal to 1.");
-                return; // Kết thúc hàm nếu số lượng nhỏ hơn 1
-            }
-
-            // Lưu thông tin sản phẩm vào localStorage
-            const cartItem = {
-                id: productId,
-                name: productName,
-                price: productPrice,
-                size: selectedSize,
-                brand: productBrand,
-                origin: productOrigin,
-                color: productColor,
-                image: productImage,
-                quantity: productQuantity
-            };
-
-            // Lấy danh sách các sản phẩm trong giỏ hàng từ localStorage
-            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-
-            // Thêm sản phẩm vào danh sách
-            cartItems.push(cartItem);
-
-            // Lưu danh sách sản phẩm vào localStorage
-            localStorage.setItem('cartItems', JSON.stringify(cartItems));
-
-            // Cập nhật số lượng sản phẩm trong giỏ hàng trên giao diện
-            document.getElementById('cartCounter').innerText = cartItems.length;
-        }
-
-
         // Gắn sự kiện click cho nút thêm vào giỏ hàng
         const addToCartButton = document.querySelector('.btn-success');
         addToCartButton.addEventListener('click', addToCart);
     });
 
-    $(document).ready(function() {
-        $('.nav-tabs a').click(function() {
-            $(this).tab('show');
-        });
-    });
+    function addToCart(event) {
+        event.preventDefault(); // Ngăn chặn hành động mặc định của nút
+
+        // Lấy thông tin sản phẩm từ DOM
+        const productId = "{{ $productDetails->id }}";
+        const productName = "{{$productDetails->Name_sneaker }}";
+        const productPrice = "{{$productDetails->Price}}";
+        const selectedSize = document.getElementById('sizeSelect').value;
+        const productBrand = "{{$productDetails->Brand}}";
+        const productOrigin = "{{$productDetails->Origin}}";
+        const productColor = "{{$productDetails->Color}}";
+        const productImage = "{{$productDetails->Image}}"; // Lấy đường dẫn hình ảnh sản phẩm
+        let productQuantity = document.getElementById('quantityInput').value; // Lấy giá trị quantity từ input
+
+        // Chuyển đổi giá trị từ chuỗi sang số nguyên
+        productQuantity = parseInt(productQuantity);
+
+        if (productQuantity < 1) {
+            alert("Quantity must be greater than 1 or equal to 1.");
+            return; // Kết thúc hàm nếu số lượng nhỏ hơn 1
+        }
+
+        // Lưu thông tin sản phẩm vào localStorage
+        const cartItem = {
+            id: productId,
+            name: productName,
+            price: productPrice,
+            size: selectedSize,
+            brand: productBrand,
+            origin: productOrigin,
+            color: productColor,
+            image: productImage,
+            quantity: productQuantity
+        };
+
+        // Lấy danh sách các sản phẩm trong giỏ hàng từ localStorage
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+        // Thêm sản phẩm vào danh sách
+        cartItems.push(cartItem);
+
+        // Lưu danh sách sản phẩm vào localStorage
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+        // Cập nhật số lượng sản phẩm trong giỏ hàng trên giao diện
+        document.getElementById('cartCounter').innerText = cartItems.length;
+    }
 </script>
 <script>
     let addToCartBtn = document.getElementById('addToCartBtn');
@@ -566,60 +554,6 @@
         // Hiển thị tổng giá trị
         let totalPriceElement = document.querySelector('.total-price .Price-amount');
         totalPriceElement.textContent = '$' + totalPrice;
-    }
-
-
-    let cartItems = JSON.parse(localStorage.getItem('cartItems'));
-    let miniCartItemsDiv = document.getElementById('miniCartItems');
-    let totalPrice = 0;
-    // Kiểm tra xem có sản phẩm trong giỏ hàng không
-    if (cartItems && cartItems.length > 0) {
-        // Duyệt qua mỗi sản phẩm trong giỏ hàng và hiển thị thông tin
-        cartItems.forEach(function(product) {
-            // Tạo phần tử div cho mỗi sản phẩm
-            let productDiv = document.createElement('div');
-            productDiv.classList.add('mini-cart-item');
-
-            // Tạo nội dung HTML cho sản phẩm
-            productDiv.innerHTML = `
-                <div class="item-thumb">
-                    <img src="${product.image}" alt="${product.name}">
-                </div>
-                <div class="item-details">
-                    <h6 class="item-name">${product.name}</h6>
-                    <p class="item-price">${product.price}</p>
-                    <p class="item-size">Size: ${product.size}</p>
-                    <p class="item-brand">Brand: ${product.brand}</p>
-                    <p class="item-origin">Origin: ${product.origin}</p>
-                    <p class="item-color">Color: ${product.color}</p>
-                    <p class="item-quantity">Quantity: ${product.quantity}</p>
-                </div>
-                <button class="btn-remove" onclick="removeCartItem(${product.id})">Remove</button>
-            `;
-            totalPrice += product.price * product.quantity;
-            // Thêm sản phẩm vào trong <div class="inner-card">
-            miniCartItemsDiv.appendChild(productDiv);
-        });
-    } else {
-        // Nếu không có sản phẩm trong giỏ hàng, hiển thị thông báo
-        miniCartItemsDiv.innerHTML = '<p>No products in the cart.</p>';
-    }
-
-    // Hàm xử lý sự kiện khi nhấn nút Remove
-    function removeCartItem(productId) {
-        // Lấy thông tin sản phẩm từ localStorage
-        let cartItems = JSON.parse(localStorage.getItem('cartItems'));
-
-        // Lọc ra sản phẩm cần xoá
-        let updatedCartItems = cartItems.filter(function(product) {
-            return product.id !== productId;
-        });
-
-        // Cập nhật lại localStorage
-        localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
-
-        // Sau khi xoá, làm mới trang để cập nhật giỏ hàng
-        location.reload();
     }
 
     function formatCurrency(amount) {
