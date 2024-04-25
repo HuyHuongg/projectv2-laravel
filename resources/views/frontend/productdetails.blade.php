@@ -1,6 +1,22 @@
 @extends('layouts')
 @section('content')
-
+<style>
+    .alert {
+        position: relative;
+        top: 10;
+        left: 0;
+        width: auto;
+        height: auto;
+        padding: 10px;
+        margin: 10px;
+        line-height: 1.8;
+        border-radius: 5px;
+        cursor: hand;
+        cursor: pointer;
+        font-family: sans-serif;
+        font-weight: 400;
+    }
+</style>
 <!--START MAIN SECTION-->
 <div class="main">
     <div class="body-overlay"></div>
@@ -134,11 +150,8 @@
                                             @endforelse
                                         </select>
                                         <div class="row product-quantity input_plus_mins no-gutters">
-                                            <div class="qty col-12 col-lg-3 d-lg-flex align-items-lg-center d-inline-block">
-                                                <input type="number" id="quantityInput" value="1" min="1" style="width: 70px; padding: 8px; border: 2px solid #007bff; border-radius: 5px;">
-                                            </div>
                                             <div class="col-12 col-lg-9">
-                                                <a class="btn btn-small our-btn btn-gradient rounded-pill flex-grow-0 ml-lg-0" id="addToCartBtn">Add to Cart</a>
+                                                <a class="btn btn-small our-btn btn-gradient rounded-pill flex-grow-0 ml-lg-0" style="color: aliceblue;" id="addToCartBtn">Add to Cart</a>
                                             </div>
                                         </div>
 
@@ -491,7 +504,6 @@
     let addToCartBtn = document.getElementById('addToCartBtn');
     let sizeSelect = document.getElementById('sizeSelect');
 
-    // Thêm sự kiện click cho nút "Add to Cart"
     addToCartBtn.addEventListener('click', function() {
         // Lấy giá trị size được chọn từ select box
         let selectedSize = sizeSelect.value;
@@ -501,46 +513,51 @@
             id: "{{$productDetails->id}}",
             name: "{{$productDetails->Name_sneaker}}",
             price: "{{$productDetails->Price}}",
-            size: selectedSize, // Sử dụng giá trị size được chọn từ select box
+            size: selectedSize,
             brand: "{{$productDetails->Brand}}",
             origin: "{{$productDetails->Origin}}",
             color: "{{$productDetails->Color}}",
             image: "{{$productDetails->Image}}",
-            quantity: 1, // Số lượng mặc định khi thêm vào giỏ hàng
-            total: "{{$productDetails->Price}}" // Khởi tạo Total với giá trị ban đầu là giá của sản phẩm
+            quantity: 1,
+            total: "{{$productDetails->Price}}"
         };
 
-        // Kiểm tra xem có sản phẩm trong giỏ hàng chưa
         let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
-        // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
         let existingItemIndex = cartItems.findIndex(item => item.id === productInfo.id && item.size === productInfo.size);
 
         if (existingItemIndex !== -1) {
-            // Nếu sản phẩm đã tồn tại, chỉ cập nhật số lượng của sản phẩm
             cartItems[existingItemIndex].quantity++;
             cartItems[existingItemIndex].total = cartItems[existingItemIndex].quantity * parseFloat(cartItems[existingItemIndex].price);
         } else {
-            // Kiểm tra xem có sản phẩm cùng ID nhưng khác size không
             let sameIdDiffSizeIndex = cartItems.findIndex(item => item.id === productInfo.id && item.size !== productInfo.size);
 
             if (sameIdDiffSizeIndex !== -1) {
-                // Nếu có sản phẩm cùng ID nhưng khác size, tạo một mục mới cho kích thước này
                 let newProductInfo = Object.assign({}, productInfo);
                 cartItems.push(newProductInfo);
             } else {
-                // Nếu không có sản phẩm cùng ID và khác size, thêm sản phẩm mới vào giỏ hàng
                 cartItems.push(productInfo);
             }
         }
 
-        // Lưu mảng cartItems vào localStorage
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
 
-        // Thông báo cho người dùng biết rằng sản phẩm đã được thêm vào giỏ hàng thành công (nếu cần)
-        alert('Product added to cart successfully!');
+        // Thay vì reload trang, chỉ cần cập nhật số lượng sản phẩm trong giỏ hàng và hiển thị các sản phẩm mới
+        updateCartCounter();
+        displayCartItems();
     });
 
+
+    function updateCartCounter() {
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        let cartCounter = document.getElementById('cartCounter');
+        if (cartItems.length > 0) {
+            cartCounter.textContent = cartItems.length;
+            cartCounter.style.display = 'inline-block'; // Hiển thị cartCounter nếu có sản phẩm trong giỏ hàng
+        } else {
+            cartCounter.style.display = 'none'; // Ẩn cartCounter nếu không có sản phẩm trong giỏ hàng
+        }
+    }
 
     function displayCartItems() {
         let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
@@ -555,17 +572,7 @@
         let totalPriceElement = document.querySelector('.total-price .Price-amount');
         totalPriceElement.textContent = '$' + totalPrice;
     }
-
-    function formatCurrency(amount) {
-        // Chuyển đổi số thành chuỗi và thêm đơn vị tiền tệ
-        const formatter = new Intl.NumberFormat('vi-VN', {
-            style: 'currency',
-            currency: 'VND',
-            currencyDisplay: 'code', // Hiển thị mã tiền tệ thay vì ký hiệu
-            minimumFractionDigits: 0 // Số lượng chữ số sau dấu phẩy (để không hiển thị phần thập phân)
-        });
-        return formatter.format(amount).replace('₫', 'VND'); // Thay thế ký hiệu tiền tệ từ "₫" sang "VND"
-    }
 </script>
+<script></script>
 <!-- JavaScript -->
 @endsection

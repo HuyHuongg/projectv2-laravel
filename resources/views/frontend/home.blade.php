@@ -26,13 +26,18 @@
                             <!-- Swiper-->
                             <div class="swiper-container" id="product-slider" style="overflow: hidden;">
                                 <div class="swiper-wrapper wow slideInLeft" data-wow-duration="2s">
-                                    @foreach($products->take(4) as $product)
                                     <div class="swiper-slide">
-                                        <a onclick="slide_window('model-window{{ $loop->iteration }}');" style="cursor: pointer">
-                                            <img src="{{ asset($product->Image) }}" alt="featured product {{ $loop->iteration }}">
-                                        </a>
+                                        <a onclick="slide_window('model-window4');" ><img src="{{ asset('images/imresizer-1714065645117.jpg') }}" alt="featured product 4"></a>
                                     </div>
-                                    @endforeach
+                                    <div class="swiper-slide">
+                                        <a onclick="slide_window('model-window4');" ><img src="{{ asset('images/jd1xowb.jpg') }}" alt="featured product 4"></a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a onclick="slide_window('model-window4');" ><img src="{{ asset('images/jd1xowr.jpg') }}" alt="featured product 4"></a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a onclick="slide_window('model-window4');" ><img src="{{ asset('images/EG.jpg') }}" alt="featured product 4"></a>
+                                    </div>
                                 </div>
                                 <!-- Add Pagination -->
                             </div>
@@ -125,9 +130,7 @@
             <span></span>
         </div>
         <ul class="social-icons">
-            <li><a href="#." class="facebook_bg_hvr2 wow slideInLeft" data-wow-duration="2.1s"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
-            <li><a href="#." class="twitter_bg_hvr2 wow slideInRight" data-wow-duration="2.1s"><i class="fab fa-twitter" aria-hidden="true"></i></a> </li>
-            <li><a href="#." class="linkdin_bg_hvr2 wow slideInLeft" data-wow-duration="2.1s"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=61558257755008" class="facebook_bg_hvr2 wow slideInLeft" data-wow-duration="2.1s"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
             <li><a href="#." class="instagram_bg_hvr2 wow slideInRight" data-wow-duration="2.1s"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
         </ul>
     </div>

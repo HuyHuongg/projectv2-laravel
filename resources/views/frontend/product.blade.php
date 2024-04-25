@@ -83,9 +83,6 @@
                                                     <div class="p-item-overlay text-center d-flex justify-content-center align-items-center">
                                                         <div class="btn-container">
                                                             <a class="btn our-btn q-btn rounded-pill" href="{{ route('frontend.productdetails', $product->id) }}" onclick="open_model_window1('model-window5');">QUICK VIEW</a>
-                                                            <a class="btn our-btn btn-gradient rounded-pill" onclick="addToCart(event);" href="{{ route('frontend.addToCart', ['id' => $product->id]) }}">ADD TO CART</a>
-
-                                                            <!-- Thêm các nút chức năng khác nếu cần -->
                                                         </div>
                                                         
                                                     </div>

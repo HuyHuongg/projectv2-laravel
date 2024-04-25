@@ -41,29 +41,7 @@
                                     localStorage.setItem('cartCounter', cartCounter);
                                 }
 
-                                function addToCart(event) {
-                                    event.preventDefault();
-
-                                    // Lấy giá trị hiện tại của cartCounter từ localStorage
-                                    let cartCounter = localStorage.getItem('cartCounter');
-
-                                    // Lấy số lượng sản phẩm từ localStorage
-                                    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-                                    updateCartCounter();
-                                    // Kiểm tra nếu giỏ hàng có sản phẩm thì cập nhật cartCounter với độ dài của mảng cartItems
-                                    if (cartItems.length > 0) {
-                                        cartCounter = cartItems.length;
-                                    } else {
-                                        // Nếu không có sản phẩm trong giỏ hàng, cartCounter được đặt về 0
-                                        cartCounter = 0;
-                                    }
-
-                                    // Lưu giá trị mới vào localStorage
-                                    localStorage.setItem('cartCounter', cartCounter);
-
-                                    // Cập nhật giá trị cartCounter trên giao diện
-                                    document.getElementById('cartCounter').innerText = cartCounter;
-                                }
+                                
                             </script>
                             <script>
                                 document.addEventListener('DOMContentLoaded', function() {
@@ -109,6 +87,17 @@
                                         <!-- Các sản phẩm sẽ được in ra từ vòng for -->
                                     </div>
                                     <script>
+                                        // Hàm thêm sản phẩm vào giỏ hàng
+                                        function addProductToCart(product) {
+                                            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+                                            cartItems.push(product);
+                                            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+                                            // Cập nhật lại mini cart và tổng giá trị
+                                            updateMiniCart();
+                                            updateTotalPrice();
+                                        }
+
                                         document.addEventListener('DOMContentLoaded', function() {
                                             // Lấy danh sách các sản phẩm từ localStorage
                                             let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
@@ -141,10 +130,10 @@
                         <p class="price">
                             <span>${formatCurrency(item.price)}</span>
                             <div style="display:flex; justify-content:space-between">
-                            <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${i}, this)" style="width: 70px!important">
-                            <a href="#" onclick="removeCartItem(${i})" style="width:20px">
-                                <i class="fa fa-trash dustbin"></i>
-                            </a>
+                                <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${i}, this)" style="width: 70px!important">
+                                <a href="#" onclick="removeCartItem(${i})" style="width:20px">
+                                    <i class="fa fa-trash dustbin"></i>
+                                </a>
                             </div>
                         </p>
                     </div>
@@ -154,7 +143,6 @@
                                                 }
                                             }
                                         });
-
 
                                         // Hàm cập nhật số lượng sản phẩm
                                         function updateQuantity(index, input) {
@@ -202,7 +190,7 @@
                                             updateMiniCart();
                                         }
 
-
+                                        // Hàm cập nhật mini cart
                                         function updateMiniCart() {
                                             let miniCartItemsDiv = document.getElementById('miniCartItems');
                                             miniCartItemsDiv.innerHTML = ''; // Xóa nội dung cũ của miniCartItemsDiv
@@ -240,6 +228,7 @@
                                             });
                                             return formatter.format(amount).replace('₫', 'VND'); // Thay thế ký hiệu tiền tệ từ "₫" sang "VND"
                                         }
+
                                         document.addEventListener('DOMContentLoaded', function() {
                                             // Gắn sự kiện click cho nút refresh cart
                                             let refreshCartBtn = document.getElementById('refreshCartBtn');
@@ -256,7 +245,7 @@
                                         <span class="total-price" id="totalPrice"></span>
                                     </div>
                                     <div class="actions" style="display: flex;">
-                                        <a  class="btn btn-medium btn-gradient rounded-pill"style="color: white;" id="refreshCartBtn">Refresh Cart</a>
+                                        <a class="btn btn-medium btn-gradient rounded-pill" style="color: white;" id="refreshCartBtn">Refresh Cart</a>
                                         <a class="btn view-cart btn-medium btn-gradient rounded-pill" href="{{route('frontend.checkOut')}}" style="color: white;">Check Out</a>
                                     </div>
                                 </div>

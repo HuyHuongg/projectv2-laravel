@@ -43,15 +43,17 @@
                                             </tr>
                                         </thead>
                                         <tbody id="checkOutItems">
-                                            <!-- Các sản phẩm sẽ được in ra từ JavaScript -->
+
                                         </tbody>
                                     </table>
                                 </div>
 
-                                <div class="apply_coupon">
-                                    <div class="row">
-
-                                    </div>
+                                <div class="card-total">
+                                    <h4 class="heading">Card Total</h4>
+                                    <p>
+                                    <h4 class="heading">Total Price:</h4>
+                                    <h5 id="totalPriceAmount" class="heading"></h5>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -67,7 +69,6 @@
 
                                         <div class="row">
                                             <div class="col-50">
-                                                <h3>Billing Address</h3>
                                                 <label for="name">Full Name</label><br />
                                                 <input type="text" id="name" name="name" placeholder="Your name" required />
                                                 <br />
@@ -89,12 +90,7 @@
                                     </form>
                                 </div>
                             </div>
-                            <div class="col-12 col-lg-5 wow slideInUp" data-wow-duration="2s">
-                                <div class="card-total">
-                                    <h4 class="heading">Card Total</h4>
-                                    <p>Total Price: <span id="totalPrice"></span></p>
-                                </div>
-                            </div>
+
 
                         </div>
                         <!-- END SHOP CART CHECKOUT FORM -->
@@ -131,7 +127,6 @@
                     document.getElementById("phone").value = products.phone || "";
                     document.getElementById("address").value = products.address || "";
 
-                    displayCart(products);
                 }
             });
 
@@ -241,65 +236,82 @@
             <td>
                 <h4 class="text-center amount">${formatCurrency(item.price * item.quantity)}</h4>
             </td>
+            <td>
+            <a href="#" class="btn-remove" onclick="removeCartItem(${index})"> <i class="fa fa-trash dushbin"></i></a>
+            </td>
+        `;
+                    tbody.appendChild(tr);
+
+                    updateTotalPrice();
+                });
+            });
+            // Hàm xử lý khi xoá sản phẩm
+            function removeCartItem(index) {
+                let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+                cartItems.splice(index, 1); // Xoá sản phẩm khỏi giỏ hàng
+
+                localStorage.setItem('cartItems', JSON.stringify(cartItems)); // Lưu lại giỏ hàng mới
+
+                updateCart(); // Cập nhật giỏ hàng và tổng giá tiền
+            }
+
+            // Hàm cập nhật tổng giá tiền và hiển thị lại giỏ hàng
+            function updateCart() {
+                let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+                let tbody = document.querySelector('#checkOutItems');
+
+                // Xóa nội dung cũ của tbody
+                tbody.innerHTML = '';
+
+                // Duyệt qua từng sản phẩm trong giỏ hàng và thêm vào tbody
+                cartItems.forEach(function(item, index) {
+                    let tr = document.createElement('tr');
+                    tr.innerHTML = `
+            <td>
+                <div class="d-table">
+                    <div class="d-table-cell">
+                        <a class="shopping-product" href="${item.image}"><img src="${item.image}" alt="${item.name}"></a>
+                    </div>
+                    <div class="d-table-cell">
+                        <h4 class="product-name"><a href="product-detail.html">${item.name}</a></h4>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <h4 class="text-center d-table-price amount">${formatCurrency(item.price)}</h4>
+            </td>
+            <td class="text-center">
+                <div class="quote text-center">
+                    <input type="text" value="${item.quantity}" class="rounded-pill quote" onchange="updateQuantity(${index}, this)">
+                </div>
+            </td>
+            <td>
+                <h4 class="text-center amount">${formatCurrency(item.price * item.quantity)}</h4>
+            </td>
+            <td>
+                <button class="btn-remove" onclick="removeCartItem(${index})">Xoá</button>
+            </td>
         `;
                     tbody.appendChild(tr);
                 });
-            });
 
-            function formatCurrency(amount) {
-                // Chuyển đổi số thành chuỗi và thêm đơn vị tiền tệ
-                const formatter = new Intl.NumberFormat('vi-VN', {
-                    style: 'currency',
-                    currency: 'VND',
-                    currencyDisplay: 'code', // Hiển thị mã tiền tệ thay vì ký hiệu
-                    minimumFractionDigits: 0 // Số lượng chữ số sau dấu phẩy (để không hiển thị phần thập phân)
-                });
-                return formatter.format(amount).replace('₫', 'VND'); // Thay thế ký hiệu tiền tệ từ "₫" sang "VND"
+                updateTotalPrice(); // Gọi hàm cập nhật tổng giá tiền sau mỗi lần cập nhật giỏ hàng
             }
 
-            function updateQuantity(index, input) {
-                const newValue = parseInt(input.value);
-                if (newValue <= 0) {
-                    alert("Số lượng không hợp lệ. Vui lòng nhập một số lớn hơn 0.");
-                    input.value = 1; // Đặt giá trị về 1 nếu người dùng nhập số lượng nhỏ hơn hoặc bằng 0
-                } else {
-                    // Lưu giá trị mới vào trong localStorage
-                    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-                    cartItems[index].quantity = newValue;
-                    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-                    // Cập nhật lại giá trị tổng giá trị và hiển thị nó
-                    updateTotalPrice();
-                }
-            }
-
-            function removeCartItem(index) {
-                let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-
-                // Xóa sản phẩm khỏi giỏ hàng
-                cartItems.splice(index, 1);
-
-                // Lưu lại danh sách sản phẩm mới vào localStorage
-                localStorage.setItem('cartItems', JSON.stringify(cartItems));
-
-                // Cập nhật lại số lượng sản phẩm trong giỏ hàng
-                updateCartCounter();
-
-                // Cập nhật lại tổng giá trị
-                updateTotalPrice();
-
-                // Cập nhật lại mini cart
-                updateMiniCart();
-            }
-
+            // Hàm cập nhật tổng giá tiền
             function updateTotalPrice() {
-                // Lấy danh sách các sản phẩm từ localStorage
                 let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
                 let totalPrice = 0;
-                for (let i = 0; i < cartItems.length; i++) {
-                    totalPrice += cartItems[i].price * cartItems[i].quantity;
-                }
-                // In tổng giá trị vào phần tử có id là 'totalPrice'
-                document.getElementById('totalPrice').innerText = formatCurrency(totalPrice);
+
+                cartItems.forEach(function(item) {
+                    totalPrice += item.price * item.quantity;
+                });
+
+                // Hiển thị tổng giá tiền
+                document.getElementById('totalPriceAmount').textContent = formatCurrency(totalPrice);
+
+                // Console log tổng giá tiền để kiểm tra
+                console.log('Tổng giá tiền:', totalPrice);
             }
         </script>
         <!--START SIDEBAR SECTION -->
