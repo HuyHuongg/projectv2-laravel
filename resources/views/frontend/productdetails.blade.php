@@ -501,6 +501,8 @@
 </script>
 <script>
     let addToCartBtn = document.getElementById('addToCartBtn');
+    let sizeSelect = document.getElementById('sizeSelect');
+
     // Thêm sự kiện click cho nút "Add to Cart"
     addToCartBtn.addEventListener('click', function() {
         // Lấy giá trị size được chọn từ select box
@@ -516,14 +518,33 @@
             origin: "{{$productDetails->Origin}}",
             color: "{{$productDetails->Color}}",
             image: "{{$productDetails->Image}}",
-            quantity: 1 // Số lượng mặc định khi thêm vào giỏ hàng
+            quantity: 1, // Số lượng mặc định khi thêm vào giỏ hàng
+            total: "{{$productDetails->Price}}" // Khởi tạo Total với giá trị ban đầu là giá của sản phẩm
         };
 
         // Kiểm tra xem có sản phẩm trong giỏ hàng chưa
         let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
-        // Thêm thông tin sản phẩm vào mảng cartItems
-        cartItems.push(productInfo);
+        // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
+        let existingItemIndex = cartItems.findIndex(item => item.id === productInfo.id && item.size === productInfo.size);
+
+        if (existingItemIndex !== -1) {
+            // Nếu sản phẩm đã tồn tại, chỉ cập nhật số lượng của sản phẩm
+            cartItems[existingItemIndex].quantity++;
+            cartItems[existingItemIndex].total = cartItems[existingItemIndex].quantity * parseFloat(cartItems[existingItemIndex].price);
+        } else {
+            // Kiểm tra xem có sản phẩm cùng ID nhưng khác size không
+            let sameIdDiffSizeIndex = cartItems.findIndex(item => item.id === productInfo.id && item.size !== productInfo.size);
+
+            if (sameIdDiffSizeIndex !== -1) {
+                // Nếu có sản phẩm cùng ID nhưng khác size, tạo một mục mới cho kích thước này
+                let newProductInfo = Object.assign({}, productInfo);
+                cartItems.push(newProductInfo);
+            } else {
+                // Nếu không có sản phẩm cùng ID và khác size, thêm sản phẩm mới vào giỏ hàng
+                cartItems.push(productInfo);
+            }
+        }
 
         // Lưu mảng cartItems vào localStorage
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
@@ -531,6 +552,21 @@
         // Thông báo cho người dùng biết rằng sản phẩm đã được thêm vào giỏ hàng thành công (nếu cần)
         alert('Product added to cart successfully!');
     });
+
+
+    function displayCartItems() {
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        let totalPrice = 0;
+
+        // Tính tổng giá trị của tất cả các sản phẩm trong giỏ hàng
+        cartItems.forEach(item => {
+            totalPrice += item.total;
+        });
+
+        // Hiển thị tổng giá trị
+        let totalPriceElement = document.querySelector('.total-price .Price-amount');
+        totalPriceElement.textContent = '$' + totalPrice;
+    }
 
 
     let cartItems = JSON.parse(localStorage.getItem('cartItems'));
