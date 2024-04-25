@@ -1,6 +1,6 @@
 @extends('layouts')
 @section('content')
-
+<link rel="stylesheet" href="{{ asset('css/fe/product.css') }}">
 <!--START MAIN SECTION-->
 <div class="main">
     <div class="body-overlay"></div>
@@ -71,7 +71,6 @@
                                     </div>
                                 </div>
 
-                                <!-- START DISPLAY PRODUCT -->
                                 <div class="product-list row">
 
 
@@ -99,6 +98,7 @@
                                         @endforeach
                                     </div>
                                 </div>
+                                
                                 <!-- END DISPLAY PRODUCT -->
 
                                 <!-- START FEATURED FOOTER -->
