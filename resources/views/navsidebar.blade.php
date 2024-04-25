@@ -7,7 +7,7 @@
     <nav>
         <ul class="side-bar">
             <li class="nav-item main-item">
-                <a class="nav-link nav-appear" href="index-product.html">Home</a>
+                <a class="nav-link nav-appear" href="{{route('frontend.home')}}">Home</a>
             </li>
             <li class="nav-item active main-item">
                 <a class="nav-link nav-appear" id="demo1">Blog <i class="fas fa-caret-right forward"></i></a>

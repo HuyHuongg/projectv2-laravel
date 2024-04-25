@@ -20,25 +20,19 @@
                         <div class="col-sm-12 col-md-8 col-lg-12 box1 text-center order-2">
                             <div class="ribbon">
                                 <div class="wrap">
-                                    <span class="ribbon6">$ 150.00</span>
+                                    <span class="ribbon6">High Quality</span>
                                 </div>
                             </div>
                             <!-- Swiper-->
                             <div class="swiper-container" id="product-slider" style="overflow: hidden;">
                                 <div class="swiper-wrapper wow slideInLeft" data-wow-duration="2s">
+                                    @foreach($products->take(4) as $product)
                                     <div class="swiper-slide">
-
-                                        <a onclick="slide_window('model-window4');" style="cursor: pointer"><img src="{{ asset('images/img/featured_product.png') }}" alt="featured product 4"></a></a>
+                                        <a onclick="slide_window('model-window{{ $loop->iteration }}');" style="cursor: pointer">
+                                            <img src="{{ asset($product->Image) }}" alt="featured product {{ $loop->iteration }}">
+                                        </a>
                                     </div>
-                                    <div class="swiper-slide">
-                                        <a onclick="slide_window('model-window4');" style="cursor: pointer"><img src="{{ asset('images/img/featured_product1.png') }}" alt="featured product 4"></a>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <a onclick="slide_window('model-window4');" style="cursor: pointer"><img src="{{ asset('images/img/featured_product2.png') }}" alt="featured product 4"></a>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <a onclick="slide_window('model-window4');" style="cursor: pointer"><img src="{{ asset('images/img/featured_product3.png') }}" alt="featured product 4"></a>
-                                    </div>
+                                    @endforeach
                                 </div>
                                 <!-- Add Pagination -->
                             </div>
@@ -50,7 +44,7 @@
                             <h4 class="text-center text-lg-left"><span>Shoes</span> Shop</h4>
                             <p class="featured_description">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
                             <div class="button-1 rounded-pill">
-                                <a href="product\product-listing-light.html" class="rounded-pill">SHOP NOW </a>
+                                <a href="{{route('frontend.product')}}" class="rounded-pill">SHOP NOW </a>
                             </div>
                         </div>
                     </div>
@@ -64,40 +58,24 @@
                                         <h4 class="text-center text-md-left"><span>Shoes</span> Store</h4>
                                         <p class="">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
                                         <div class="button-1 rounded-pill">
-                                            <a href="product\product-listing-light.html" class="rounded-pill">SHOW NOW </a>
+                                            <a href="{{route('frontend.product')}}" class="rounded-pill">SHOW NOW</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-12 featured_items wow fadeIn" data-wow-duration="2s">
                                         <div class="featured-items owl-carousel owl-theme">
+                                            @foreach($products as $product)
                                             <div class="item pr-2">
-                                                <a href="javascript:void(0)" onclick="open_model_window('model-window1');">
+                                                <a href="{{ route('frontend.productdetails', $product->id) }}">
                                                     <div class="img-holder">
-                                                        <img src="{{ asset('images/img\item1.png') }}" alt="items">
+                                                        <img src="{{ asset($product->Image) }}" alt="{{ $product->Name_sneaker }}">
                                                         <div class="plus"><i class="fa-plus"></i></div>
                                                     </div>
                                                 </a>
-                                                <p class="text-center product-price">$103.00</p>
+                                                <p class="text-center product-price">{{ number_format($product->Price, 0, ',', '.') }} VND</p>
                                             </div>
-                                            <div class="item pr-2">
-                                                <a href="javascript:void(0)" onclick="open_model_window('model-window2');">
-                                                    <div class="img-holder">
-                                                        <img src="{{ asset('images/img\item2.png') }}" alt="items">
-                                                        <div class="plus"><i class="fa-plus"></i></div>
-                                                    </div>
-                                                </a>
-                                                <p class="text-center product-price">$103.00</p>
-                                            </div>
-                                            <div class="item pr-2">
-                                                <a href="javascript:void(0);" onclick="open_model_window('model-window3');">
-                                                    <div class="img-holder">
-                                                        <img src="{{ asset('images/img\item3.png') }}" alt="items">
-                                                        <div class="plus"><i class="fa-plus"></i></div>
-                                                    </div>
-                                                </a>
-                                                <p class="text-center product-price">$103.00</p>
-                                            </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                     <!--  START FOOTER AREA -->
@@ -121,7 +99,7 @@
                                                         <p>SIMPLY RETURN 3 DAYS</p>
                                                     </div>
                                                     <div class="col-md-12 d-block d-lg-none">
-                                                        <p>© 2019 MegaOne.  Made by Themes Industry</p>
+                                                        <p>© 2019 MegaOne. Made by Themes Industry</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -129,6 +107,7 @@
                                     </div>
                                     <!--  END FOOTER AREA -->
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -160,5 +139,16 @@
 </div>
 
 <div id="modal-data"></div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+            // Get the cart counter element
+            const cartCounter = document.getElementById('cartCounter');
 
+            // Get the cart items from local storage or initialize to an empty array if not present
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+            // Update the cart counter with the length of cart items
+            cartCounter.textContent = cartItems.length;
+        });
+</script>
 @endsection

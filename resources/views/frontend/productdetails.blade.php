@@ -1,158 +1,646 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts')
+@section('content')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTH SNEAKER STORE</title>
-    <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
-    <link rel="stylesheet" href="{{ asset('css/fe/homepage.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/fe/productdetails.css') }}">
+<!--START MAIN SECTION-->
+<div class="main">
+    <div class="body-overlay"></div>
+    <div class="product-section contact-body">
+        <header class="contact-us-header">
+            <div class="container container-setting">
+                <div class="row justify-content-center about_us_nav">
+                    <nav class="navbar navbar-expand contact-us-nav navbar-light bg-light">
+                        <a href="..\index-product.html" class="navbar-brand">
+                            <img src="img\logo.png" alt="logo" /></a>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <script src="{{ asset('js/homepage.js') }}"></script>
-    <link rel="stylesheet" href="{{ asset('css/fe/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Load fonts style after rendering the layout styles -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
-</head>
+                        <div class="menu-tog d-block d-lg-none" id="sidemenu_toggle1">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
 
-<body>
-    
-    <div class="header">
-        <div class="header-left">
-            <a href="{{ route('frontend.home') }}"><img src="{{ asset('images/logo-shop.png') }}" alt="Mô tả của hình ảnh"></a>
-            <div class="option-header">
-                <a href="/product">Product</a>
-                <a href="#">About</a>
-                <a href="/blog">Blog</a>
+                        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                            <ul class="navbar-nav ml-auto header-nav">
+                                <li class="nav-item dropdown cart-item">
+                                    <a href="#" class="nav-link" data-toggle="dropdown">
+                                        <i class="lni-cart">
+                                            <span class="badge badge-custom-setting">0</span></i>
+                                    </a>
+                                    <div class="dropdown-menu sm-menu mini-cart">
+                                        <div class="mini-cart-header">
+                                            <h4>Shopping Cart</h4>
+                                        </div>
+                                        <div class="mini-cart-body">
+                                            <div class="inner-card">
+                                                <div class="media">
+                                                    <div class="img-holder ml-1 mr-2">
+                                                        <img src="img\m1.jpg" class="align-self-center" alt="cartitem" />
+                                                    </div>
+                                                    <div class="media-body mt-auto mb-auto">
+                                                        <h5 class="name">Shoes</h5>
+                                                        <p class="category">Adidas Shoes Lastest</p>
+                                                        <p class="price">
+                                                            <span>$20</span>(x1)
+                                                            <a href="#">
+                                                                <i class="fa fa-trash dustbin"></i></a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="media">
+                                                    <div class="img-holder ml-1 mr-2">
+                                                        <img src="img\m2.jpg" class="align-self-center" alt="cartitem" />
+                                                    </div>
+                                                    <div class="media-body mt-auto mb-auto">
+                                                        <h5 class="name">Shoes</h5>
+                                                        <p class="category">Adidas Shoes Lastest</p>
+                                                        <p class="price">
+                                                            <span>$20</span>(x1)
+                                                            <a href="#">
+                                                                <i class="fa fa-trash dustbin"></i></a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="media">
+                                                    <div class="img-holder ml-1 mr-2">
+                                                        <img src="img\m1.jpg" class="align-self-center" alt="cartitem" />
+                                                    </div>
+                                                    <div class="media-body mt-auto mb-auto">
+                                                        <h5 class="name">Shoes</h5>
+                                                        <p class="category">Adidas Shoes Lastest</p>
+                                                        <p class="price">
+                                                            <span>$20</span>(x1)
+                                                            <a href="#">
+                                                                <i class="fa fa-trash dustbin"></i></a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="media">
+                                                    <div class="img-holder ml-1 mr-2">
+                                                        <img src="img\m2.jpg" class="align-self-center" alt="cartitem" />
+                                                    </div>
+                                                    <div class="media-body mt-auto mb-auto">
+                                                        <h5 class="name">Shoes</h5>
+                                                        <p class="category">Adidas Shoes Lastest</p>
+                                                        <p class="price">
+                                                            <span>$20</span>(x1)
+                                                            <a href="#">
+                                                                <i class="fa fa-trash dustbin"></i></a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mini-cart-footer">
+                                            <div class="subtotal">
+                                                <span class="total-title">Total: </span>
+                                                <span class="total-price">
+                                                    <span class="Price-amount"> $135 </span>
+                                                </span>
+                                            </div>
+                                            <div class="actions">
+                                                <button type="button" class="btn view-bag rounded-pill">
+                                                    View Bag
+                                                </button>
+                                                <button type="button" class="btn view-cart btn-medium btn-gradient rounded-pill">
+                                                    Checkout
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <div class="contact-us-content">
+            <div class="slider-content">
+                <div class="parallax-slide banner-slide" style="background: url('img/product-detail-bg.jpg')"></div>
+
+                <div class="product-section-body">
+                    <div class="row no-gutters">
+                        <div class="col-12 col-lg-3 order-2 order-lg-1 bg-light sticky">
+                            <div id="product-filter-nav" class="product-filter-nav">
+                                <div class="product-category">
+                                    <h5 class="filter-heading text-center text-lg-left">
+                                        Category
+                                    </h5>
+                                    <ul>
+                                        <li><a href="#">June </a><span>(2)</span></li>
+                                        <li><a href="#">July </a><span>(4)</span></li>
+                                        <li><a href="#">Augest </a><span>(2)</span></li>
+                                        <li><a href="#">March </a><span>(7)</span></li>
+                                        <li><a href="#">May </a><span>(9)</span></li>
+                                    </ul>
+                                </div>
+                                <div class="product-price">
+                                    <h5 class="filter-heading">Shop By</h5>
+                                    <div id="slider-range"></div>
+                                    <p class="price-num" style="color: #0b2e13">
+                                        Price: <span id="min-p"></span> <span id="max-p"></span>
+                                    </p>
+                                </div>
+
+                                <button class="btn our-btn btn-gradient rounded-pill d-block ml-auto mr-auto ml-lg-0">
+                                    Filter
+                                </button>
+
+                                <div class="product-add">
+                                    <div class="row no-gutters">
+                                        <div class="col-12">
+                                            <img src="img\add.jpg" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row R-rite">
+                                    <div class="col-12">
+                                        <p>
+                                            &copy; 2019 MegaOne Made by
+                                            <a class="web-link" href="http://www.themesindustry.com/" target="_blank">Themesindustry</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-9 order-1 order-lg-2">
+                            <div class="product-body">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb text-center text-lg-left">
+                                        <li class="breadcrumb-item"><a href="{{route('frontend.home')}}">Home</a></li>
+                                        <li class="breadcrumb-item">
+                                            <a href="#">categories</a>
+                                        </li>
+                                        <li class="breadcrumb-item" aria-current="page">
+                                            <a href="#">sports</a>
+                                        </li>
+                                        <li class="breadcrumb-item">
+                                            <a href="#">{{$productDetails->Name_sneaker}}</a>
+                                        </li>
+                                    </ol>
+                                </nav>
+                                <div class="pro-detail-sec row">
+                                    <div class="col-12">
+                                        <h4 class="pro-heading text-center text-lg-left">
+                                            <span>Sports </span> Collection
+                                        </h4>
+                                        <p class="pro-text text-center text-lg-left">
+                                            Neque porro quisquam est qui dolorem ipsum quia dolor
+                                            sit amet, consectetur, adipisci velit.
+                                        </p>
+                                    </div>
+                                </div>
+                                <form action="{{ route('frontend.addToCart') }}" method="POST"></form>
+                                @if(isset($productDetails))
+
+                                <div class="row product-list product-detail">
+                                    <div class="col-12 col-lg-6 product-detail-slider">
+                                        <div class="wrapper">
+                                            <div class="Gallery swiper-container img-magnifier-container" id="gallery">
+                                                <div class="swiper-wrapper" class="myimgs">
+                                                    <div class="swiper-slide">
+                                                        <a href="{{$productDetails->Image}}" data-fancybox="1" title="Zoom In"><img class="myimage" src="{{$productDetails->Image}}" alt="gallery" /></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-lg-6 text-center text-lg-left">
+                                        <div class="product-single-price">
+                                            <h4>
+                                                <span class="real-price">{{ number_format($productDetails->Price, 0, ',', '.') }} VND</span>
+                                            </h4>
+                                            <p class="pro-description">
+                                                {{$productDetails->Description}}
+                                            </p>
+                                        </div>
+
+                                        <div class="product-checklist">
+                                            <ul>
+                                                <li>
+                                                    <i class="fas fa-check"></i> Satisfaction 100%
+                                                    Guaranteed
+                                                </li>
+                                                <li>
+                                                    <i class="fas fa-check"></i> free shipping on
+                                                    orders over $99
+                                                </li>
+                                                <li>
+                                                    <i class="fas fa-check"></i> 14 days easy Return
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <span> <strong>Size: </strong></span>
+                                        <select id="sizeSelect">
+                                            @forelse($productDetails->sizes as $size)
+                                            <option value="{{ $size->size_name }}">{{ $size->size_name }}</option>
+                                            @empty
+                                            <option disabled>No sizes available</option>
+                                            @endforelse
+                                        </select>
+                                        <div class="row product-quantity input_plus_mins no-gutters">
+                                            <div class="qty col-12 col-lg-3 d-lg-flex align-items-lg-center d-inline-block">
+                                                <span class="minus bg-dark"><i class="lni-minus"></i></span>
+                                                <input type="number" class="count" name="qty" value="1" />
+                                                <span class="plus bg-dark"><i class="lni-plus"></i></span>
+                                                <!--                                                <button class="btn btn-small our-btn btn-gradient rounded-pill flex-grow-0 ml-lg-0">ADD TO CART</button>-->
+                                            </div>
+                                            <div class="col-12 col-lg-9">
+                                                <form id="addToCartForm" action="{{ route('frontend.addToCart') }}" method="POST" style="display: none;">
+                                                    @csrf
+                                                </form>
+                                                <a href="#" class="add-cart" onclick="event.preventDefault(); document.getElementById('addToCartForm').submit();">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 56 56">
+                                                        <path fill="currentColor" d="M20.008 39.649H47.36c.913 0 1.71-.75 1.71-1.758s-.797-1.758-1.71-1.758H20.406c-1.336 0-2.156-.938-2.367-2.367l-.375-2.461h29.742c3.422 0 5.18-2.11 5.672-5.461l1.875-12.399a7.2 7.2 0 0 0 .094-.89c0-1.125-.844-1.899-2.133-1.899H14.641l-.446-2.976c-.234-1.805-.89-2.72-3.28-2.72H2.687c-.937 0-1.734.822-1.734 1.76c0 .96.797 1.781 1.735 1.781h7.921l3.75 25.734c.493 3.328 2.25 5.414 5.649 5.414m31.054-25.454L49.4 25.422c-.188 1.453-.961 2.344-2.344 2.344l-29.906.023l-1.993-13.594ZM21.86 51.04a3.766 3.766 0 0 0 3.797-3.797a3.781 3.781 0 0 0-3.797-3.797c-2.132 0-3.82 1.688-3.82 3.797c0 2.133 1.688 3.797 3.82 3.797m21.914 0c2.133 0 3.82-1.664 3.82-3.797c0-2.11-1.687-3.797-3.82-3.797c-2.109 0-3.82 1.688-3.82 3.797c0 2.133 1.711 3.797 3.82 3.797" />
+                                                    </svg>
+                                                    <button class="btn btn-small our-btn btn-gradient rounded-pill flex-grow-0 ml-lg-0">
+                                                        ADD TO CART
+                                                    </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="dropdown-divider"></div>
+
+                                        <div class="product-tags-list">
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item">
+                                                        <p class="d-inline">SKU: <span>00012</span></p>
+                                                    </li>
+                                                    <li class="breadcrumb-item">
+                                                        <p class="d-inline">Categories:</p>
+                                                        <a href="#">Sports</a><span class="comma-separtor">,</span><a href="#">Footwear</a>
+                                                    </li>
+                                                    <li class="breadcrumb-item" aria-current="page">
+                                                        <p class="d-inline">Tags:</p>
+                                                        <a href="#">Sports</a><span class="comma-separtor">,</span><a href="#">Shoes</a>
+                                                    </li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+
+                                        <div class="share-product-details">
+                                            <ul class="share-product-icons">
+                                                <li>
+                                                    <p>Share Link:</p>
+                                                </li>
+                                                <li>
+                                                    <a href="#." class="facebook_bg_hvr2"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#." class="twitter_bg_hvr2"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#." class="linkedin-bg-hvr"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#." class="instagram-bg-hvr"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 mt-4 mb-4">
+                                        <div class="row no-gutters product-all-details">
+                                            <ul class="col-12 nav nav-tabs" id="myTab" role="tablist">
+                                                <li class="col-4 nav-item">
+                                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Project Description</a>
+                                                </li>
+                                                <li class="col-4 nav-item">
+                                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Additional Information</a>
+                                                </li>
+                                                <li class="col-4 nav-item">
+                                                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Customer Reviews (2)</a>
+                                                </li>
+                                            </ul>
+                                            <div class="col-12 tab-content" id="myTabContent">
+                                                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                                    <p class="product-tab-description text-center text-lg-left">
+                                                        If you are a small business and you are
+                                                        interested in small rebranding then this is a
+                                                        perfect plan for you, having Five years
+                                                        experience in Blogging, photographing, Disgning
+                                                        and love to cycling,Writting,Singing and
+                                                        Traveling around the world
+                                                    </p>
+                                                    <p class="product-tab-description text-center text-lg-left">
+                                                        If you are a small business and you are
+                                                        interested in small rebranding then this is a
+                                                        perfect plan for you, having Five years
+                                                        experience in Blogging, photographing, Disgning
+                                                        and love to cycling,Writting,Singing and
+                                                        Traveling around the world
+                                                    </p>
+                                                </div>
+                                                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <table class="table table-striped">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th scope="col">#</th>
+                                                                        <th scope="col">First</th>
+                                                                        <th scope="col">Last</th>
+                                                                        <th scope="col">Handle</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <th scope="row">1</th>
+                                                                        <td>Mark</td>
+                                                                        <td>Otto</td>
+                                                                        <td>@mdo</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">2</th>
+                                                                        <td>Jacob</td>
+                                                                        <td>Thornton</td>
+                                                                        <td>@fat</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">3</th>
+                                                                        <td>Larry</td>
+                                                                        <td>the Bird</td>
+                                                                        <td>@twitter</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade reviews" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                                                    <div class="media">
+                                                        <div class="row no-gutter">
+                                                            <div class="col-12 col-lg-2 p-0">
+                                                                <div class="row no-gutters">
+                                                                    <div class="col-12 d-flex justify-content-center">
+                                                                        <img src="img\product-detail-images\user.jpg" alt="Generic placeholder image" />
+                                                                    </div>
+                                                                    <div class="col-12 d-flex mt-2 justify-content-center">
+                                                                        <ul class="user-rating">
+                                                                            <li>
+                                                                                <a href="#"><i class="lni-star-filled"></i></a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="#"><i class="lni-star-filled"></i></a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="#"><i class="lni-star-filled"></i></a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="#"><i class="lni-star-filled"></i></a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="#"><i class="lni-star"></i></a>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-12 col-lg-10 p-0">
+                                                                <div class="media-body">
+                                                                    <span class="text-center text-lg-left d-block">27 Aug 2017</span>
+                                                                    <h5 class="mb-2 text-center text-lg-left">
+                                                                        Media heading
+                                                                    </h5>
+                                                                    <p class="text-center text-lg-left">
+                                                                        Neque porro quisquam est, qui dolorem
+                                                                        ipsum quia dolor sit amet, consectetur,
+                                                                        adipisci velit, sed quia non numquam
+                                                                        eius modi tempora incidunt ut labore et
+                                                                        dolore magnam.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="media">
+                                                        <div class="row no-gutter">
+                                                            <div class="col-12 col-lg-2 p-0">
+                                                                <div class="row no-gutters">
+                                                                    <div class="col-12 d-flex justify-content-center">
+                                                                        <img src="img\product-detail-images\user2.jpg" alt="Generic placeholder image" />
+                                                                    </div>
+                                                                    <div class="col-12 d-flex mt-2 justify-content-center">
+                                                                        <ul class="user-rating">
+                                                                            <li>
+                                                                                <a href="#"><i class="lni-star-filled"></i></a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="#"><i class="lni-star-filled"></i></a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="#"><i class="lni-star-filled"></i></a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="#"><i class="lni-star-filled"></i></a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="#"><i class="lni-star"></i></a>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-12 col-lg-10 p-0">
+                                                                <div class="media-body">
+                                                                    <span class="text-center text-lg-left d-block">27 Aug 2017</span>
+                                                                    <h5 class="mb-2 text-center text-lg-left">
+                                                                        Media heading
+                                                                    </h5>
+                                                                    <p class="text-center text-lg-left">
+                                                                        Neque porro quisquam est, qui dolorem
+                                                                        ipsum quia dolor sit amet, consectetur,
+                                                                        adipisci velit, sed quia non numquam
+                                                                        eius modi tempora incidunt ut labore et
+                                                                        dolore magnam.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endif
+
+                                <div class="col-12 p-featured-footer">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <p class="text-center text-md-left">
+                                                Neque porro quisquam est qui dolorem ipsum quia
+                                                dolor sit velit. Neque porromrion quisquam est qui
+                                                dolorem ipsum quia dolor sit amet, consectetur,
+                                                adipisci velit.
+                                            </p>
+                                        </div>
+                                        <div class="col-12 text-center text-lg-left">
+                                            <div class="row">
+                                                <div class="terms col-sm-12 col-md-4 col-lg-4">
+                                                    <h4>Free Shipping</h4>
+                                                    <p>GREAT FROM HEBES</p>
+                                                </div>
+                                                <div class="terms col-sm-12 col-md-4 col-lg-4">
+                                                    <h4>Secure Payment</h4>
+                                                    <p>100% SECURE PAYMENT</p>
+                                                </div>
+                                                <div class="terms col-sm-12 col-md-4 col-lg-4">
+                                                    <h4>30 Days Return</h4>
+                                                    <p>SIMPLY RETURN 3 DAYS</p>
+                                                </div>
+
+                                                <div class="col-md-12 d-block d-lg-none">
+                                                    <p class="d-none d-lg-block">
+                                                        © 2019 MegaOne. Made by Themes Industry
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="header-right">
-
-            <form id="addToCartForm" action="{{ route('frontend.addToCart') }}" method="POST" style="display: none;">
-                @csrf
-            </form>
-            <a href="#" class="add-cart" onclick="event.preventDefault(); document.getElementById('addToCartForm').submit();">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 56 56">
-                    <path fill="currentColor" d="M20.008 39.649H47.36c.913 0 1.71-.75 1.71-1.758s-.797-1.758-1.71-1.758H20.406c-1.336 0-2.156-.938-2.367-2.367l-.375-2.461h29.742c3.422 0 5.18-2.11 5.672-5.461l1.875-12.399a7.2 7.2 0 0 0 .094-.89c0-1.125-.844-1.899-2.133-1.899H14.641l-.446-2.976c-.234-1.805-.89-2.72-3.28-2.72H2.687c-.937 0-1.734.822-1.734 1.76c0 .96.797 1.781 1.735 1.781h7.921l3.75 25.734c.493 3.328 2.25 5.414 5.649 5.414m31.054-25.454L49.4 25.422c-.188 1.453-.961 2.344-2.344 2.344l-29.906.023l-1.993-13.594ZM21.86 51.04a3.766 3.766 0 0 0 3.797-3.797a3.781 3.781 0 0 0-3.797-3.797c-2.132 0-3.82 1.688-3.82 3.797c0 2.133 1.688 3.797 3.82 3.797m21.914 0c2.133 0 3.82-1.664 3.82-3.797c0-2.11-1.687-3.797-3.82-3.797c-2.109 0-3.82 1.688-3.82 3.797c0 2.133 1.711 3.797 3.82 3.797" />
-                </svg>
-                <span id="cartCounter" class="cart-counter">0</span>
-            </a>
-            <a href="#" class="btn-contact">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 14 14">
-                    <path fill="currentColor" fill-rule="evenodd" d="M13.854.146a.5.5 0 0 1 .113.534l-5 13a.5.5 0 0 1-.922.027l-2.091-4.6L9.03 6.03a.75.75 0 0 0-1.06-1.06L4.893 8.046l-4.6-2.09a.5.5 0 0 1 .028-.923l13-5a.5.5 0 0 1 .533.113" clip-rule="evenodd" />
-                </svg>
-            </a>
-        </div>
-    </div>
-    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="w-100 pt-1 mb-5 text-right">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="sidebar-section">
+            <div class="side-nav-btn" id="sidemenu_toggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-            <form action="" method="get" class="modal-content modal-body border-0 p-0">
-                <div class="input-group mb-2">
-                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
-                    <button type="submit" class="input-group-text bg-success text-light">
-                        <i class="fa fa-fw fa-search text-white"></i>
-                    </button>
-                </div>
-            </form>
+
+            <ul class="social-icons">
+                <li>
+                    <a href="#." class="facebook_bg_hvr2"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                </li>
+                <li>
+                    <a href="#." class="twitter_bg_hvr2"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                </li>
+                <li>
+                    <a href="#." class="linkdin_bg_hvr2"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                </li>
+                <li>
+                    <a href="#." class="instagram_bg_hvr2"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                </li>
+            </ul>
         </div>
-    </div>
 
-    <form action="{{ route('frontend.addToCart') }}" method="POST"></form>
-    @if(isset($productDetails))
-
-    <div class="container bootdey">
-        <div class="col-md-12">
-            <section class="panel">
-                <div class="panel-body" style="width:100%; display:">
-                    <div class="col-md-6">
-                        <div class="pro-img-details">
-                            <img class="productimg" src="{{$productDetails->Image}}" alt="" style="width:400px">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <h4 class="pro-d-title">
-                            Giày: {{ $productDetails->Name_sneaker }}
-                        </h4>
-                        <p>
-                            <!--{{$productDetails->Description}}-->
-                        </p>
-                        <div class="product_meta">
-                            <span class="posted_in"> <strong>Brand: {{$productDetails->Brand}}</strong> </span> <br>
-                            <span class="tagged_as"><strong>Origin: {{$productDetails->Origin}}</strong> </span> <br>
-                            <span class="color"><strong>Color: {{$productDetails->Color}}</strong> </span><br>
-                            <span> <strong>Size: </strong></span>
-                            <select id="sizeSelect">
-                                @forelse($productDetails->sizes as $size)
-                                <option value="{{ $size->size_name }}">{{ $size->size_name }}</option>
-                                @empty
-                                <option disabled>No sizes available</option>
-                                @endforelse
-                            </select>
-                            <input class="form-control quantity-input" type="number" value="1" min="1" style="width:23%">
-
-                            <span><strong>Price:</strong></span>
-                            <span class="pro-price">{{ number_format($productDetails->Price) }}(VND)</span>
-
-
-                        </div>
-                        <a class="btn btn-success text-white" onclick="addToCart(event);" href="{{ route('frontend.addToCart', ['id' => $productDetails->id]) }}" style="width:23%;">Add to Cart</a>
-
-                        </p>
-                    </div>
-                </div>
-                
-            </section>
-        </div>
-       <div class="details-tab">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <ul class="nav nav-tabs" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#description" role="tab">Description</a>
+        <!--START OVERLAY MENU -->
+        <div class="side-menu-nav">
+            <h1 class="sidenav-bg-text">MEGA ONE</h1>
+            <div class="close-side-menu">
+                <i class="lni-close cross-sign" id="close-side-menu-nav"></i>
+            </div>
+            <nav>
+                <ul class="side-bar">
+                    <li class="nav-item main-item">
+                        <a class="nav-link nav-appear" href="..\index-product.html">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#commitment" role="tab">Commitment</a>
+                    <li class="nav-item active main-item">
+                        <a class="nav-link nav-appear" id="demo1">Blog <i class="fas fa-caret-right forward"></i></a>
+                        <div class="submenu-overlay">
+                            <ul class="d-flex justify-content-lg-center">
+                                <li class="nav-item d-flex align-items-center">
+                                    <a class="sub-menu-nav-appear"><i class="fas fa-arrow-alt-circle-left go-back-btn"></i></a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link sub-menu-nav-appear" href="blog.html">Standard Blog</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link sub-menu-nav-appear" href="single-blog.html">Single Blog</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item main-item">
+                        <a class="nav-link nav-appear" id="demo2">Products <i class="fas fa-caret-right forward"></i></a>
+                        <div class="submenu-overlay">
+                            <ul class="d-flex justify-content-lg-center">
+                                <li class="nav-item d-flex align-items-center">
+                                    <a class="sub-menu-nav-appear"><i class="fas fa-arrow-alt-circle-left go-back-btn"></i></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link sub-menu-nav-appear" href="product-listing-light.html">Product Listing One</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link sub-menu-nav-appear" href="product-listing-dark.html">Product Listing Two</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link sub-menu-nav-appear" href="product-detail.html">Product Detail Version</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link sub-menu-nav-appear" href="shop-cart.html">Shopping Cart</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item main-item">
+                        <a class="nav-link nav-appear" id="demo3">Pages <i class="fas fa-caret-right forward"></i></a>
+                        <div class="submenu-overlay">
+                            <ul class="d-flex justify-content-lg-center">
+                                <li class="nav-item d-flex align-items-center">
+                                    <a class="sub-menu-nav-appear"><i class="fas fa-arrow-alt-circle-left go-back-btn"></i></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link sub-menu-nav-appear" href="registeration.html">Register</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link sub-menu-nav-appear" href="login.html">Login</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link sub-menu-nav-appear" href="faq.html">FAQs</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link sub-menu-nav-appear" href="404.html">404</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item main-item">
+                        <a class="nav-link nav-appear" href="about-us.html">About Us</a>
+                    </li>
+                    <li class="nav-item main-item">
+                        <a class="nav-link nav-appear" href="contact-us.html">Contact Us</a>
                     </li>
                 </ul>
-                <div class="tab-content">
-                    <div class="tab-pane fade show active" id="description" role="tabpanel">
-                        <p>{{ $productDetails->Description }}</p>
-                    </div>
-                    <div class="tab-pane fade" id="commitment" role="tabpanel">
-                        <p>VÌ SAO CHỌN HTH Store?
-✔ Hỗ trợ đổi size, đổi mẫu 7 ngày<br>
-✔ Hỗ trợ bảo hành miễn phí trong 1 năm<br>
-✔ Double Box kèm chống sốc khi giao hàng<br>
-✔ Chương trình chăm sóc khách hàng, ưu đãi sinh nhật<br></p>
-                    </div>
-                </div>
+            </nav>
+
+            <div class="side-footer">
+                <ul class="social-icons-simple">
+                    <li>
+                        <a href="#." class="facebook_bg_hvr2 wow fadeInUp"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a href="#." class="twitter_bg_hvr2 wow fadeInDown"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a href="#." class="linkdin_bg_hvr2 wow fadeInUp"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a href="#." class="instagram_bg_hvr2 wow fadeInDown"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                    </li>
+                </ul>
+                <p class="whitecolor text-center w-100 wow fadeInDown">
+                    &copy; 2019 MegaOne. Made With Love by
+                    <a class="web-link" href="http://www.themesindustry.com/" target="_blank">Themesindustry</a>
+                </p>
             </div>
         </div>
+        <!-- End Overlay Menu -->
     </div>
 </div>
-
-                            </form>
-                            @else
-                            <p>Product not found!</p>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-
-</body>
+<!--END MAIN SECTION-->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const viewDetailsButtons = document.querySelectorAll('.view-details');
@@ -175,81 +663,72 @@
 
             // Lấy thông tin sản phẩm từ DOM
             const productId = "{{ $productDetails->id }}";
-            const productName = document.querySelector('.pro-d-title').innerText;
-            const productPriceText = document.querySelector('.pro-price').innerText;
-            const productPrice = parseFloat(productPriceText.replace(/[^\d.]/g, ''));
-            const selectedSize = document.getElementById('sizeSelect').value;
-            const productBrand = document.querySelector('.product_meta .posted_in').innerText;
-            const productOrigin = document.querySelector('.product_meta .tagged_as').innerText;
-            const productColor = document.querySelector('.color').innerText;
-            const productImage = document.querySelector('.pro-img-details img').getAttribute('src'); // Lấy đường dẫn hình ảnh sản phẩm
-            const productQuantity = parseInt(document.querySelector('.quantity-input').value); // Lấy giá trị quantity từ input
+            const productName = "{{$productDetails->Name_sneaker }}";
+            const productPrice = "{{$productDetails->Price}}";
+            const selectedSize = "{{$productDetails->Size}}";
+            const productBrand = "{{$productDetails->Brand}}";
+            const productOrigin = "{{$productDetails->Origin}}";
+            const productColor = "{{$productDetails->Color}}";
+            const productImage = "{{$productDetails->Image}}"; // Lấy đường dẫn hình ảnh sản phẩm
+            const productQuantity = "{{$productDetails->Quantity}}"; // Lấy giá trị quantity từ input
+
             if (productQuantity < 1) {
                 alert("Quantity must be greater than 1 or equal to 1.");
                 return; // Kết thúc hàm nếu số lượng nhỏ hơn 1
             }
-            // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
-            const existingItemIndex = cartItems.findIndex(item => item.id === productId && item.size === selectedSize);
 
-            if (existingItemIndex !== -1) {
-                // Nếu sản phẩm đã tồn tại trong giỏ hàng với cùng kích thước, chỉ cập nhật số lượng của sản phẩm
-                cartItems[existingItemIndex].quantity += productQuantity;
-            } else {
-                // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng với kích thước khác hay chưa
-                const existingItemDifferentSizeIndex = cartItems.findIndex(item => item.id === productId && item.size !== selectedSize);
+            // Lưu thông tin sản phẩm vào localStorage
+            const cartItem = {
+                id: productId,
+                name: productName,
+                price: productPrice,
+                size: selectedSize,
+                brand: productBrand,
+                origin: productOrigin,
+                color: productColor,
+                image: productImage,
+                quantity: productQuantity
+            };
 
-                if (existingItemDifferentSizeIndex !== -1) {
-                    // Nếu sản phẩm đã tồn tại trong giỏ hàng với kích thước khác, thêm một mục mới vào giỏ hàng với kích thước và số lượng mới
-                    const newItem = {
-                        id: productId,
-                        name: productName,
-                        price: productPrice,
-                        size: selectedSize,
-                        brand: productBrand,
-                        origin: productOrigin,
-                        image: productImage,
-                        color: productColor,
-                        quantity: productQuantity
-                    };
-                    cartItems.push(newItem);
-                } else {
-                    // Nếu sản phẩm chưa tồn tại trong giỏ hàng, thêm một mục mới vào giỏ hàng với kích thước và số lượng được chọn
-                    const newItem = {
-                        id: productId,
-                        name: productName,
-                        price: productPrice,
-                        size: selectedSize,
-                        brand: productBrand,
-                        origin: productOrigin,
-                        image: productImage,
-                        color: productColor,
-                        quantity: productQuantity
-                    };
-                    cartItems.push(newItem);
-                }
-            }
+            // Lấy danh sách các sản phẩm trong giỏ hàng từ localStorage
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
-            // Cập nhật số lượng sản phẩm trong giỏ hàng
-            cartCounter.innerText = cartItems.length;
+            // Thêm sản phẩm vào danh sách
+            cartItems.push(cartItem);
 
-            // Lưu mảng cartItems vào localStorage
+            // Lưu danh sách sản phẩm vào localStorage
             localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+            // Cập nhật số lượng sản phẩm trong giỏ hàng trên giao diện
+            document.getElementById('cartCounter').innerText = cartItems.length;
         }
+
 
         // Gắn sự kiện click cho nút thêm vào giỏ hàng
         const addToCartButton = document.querySelector('.btn-success');
         addToCartButton.addEventListener('click', addToCart);
     });
-    
-    $(document).ready(function(){
-        $('.nav-tabs a').click(function(){
+
+    $(document).ready(function() {
+        $('.nav-tabs a').click(function() {
             $(this).tab('show');
         });
     });
 </script>
-
-
-
-
+<!-- JavaScript -->
+<script src="..\vendor\js\bundle.min.js"></script>
+<!-- Plugin Js -->
+<script src="..\vendor\js\jquery.fancybox.min.js"></script>
+<script src="..\vendor\js\owl.carousel.min.js"></script>
+<script src="..\vendor\js\swiper.min.js"></script>
+<script src="..\vendor\js\jquery.cubeportfolio.min.js"></script>
+<script src="..\vendor\js\parallaxie.min.js"></script>
+<script src="..\vendor\js\wow.min.js"></script>
+<script src="..\vendor\js\stickyfill.min.js"></script>
+<script src="js\magnify.js"></script>
+<script src="js\nouislider.min.js"></script>
+<!-- Custom Script -->
+<script src="js\script.js"></script>
+</body>
 
 </html>

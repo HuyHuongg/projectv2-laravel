@@ -36,7 +36,7 @@
                                 <div class="product-price">
                                     <h5 class="filter-heading">Shop By</h5>
                                     <div id="slider-range"></div>
-                                    <p class="price-num" style="color: #0b2e13;">Price: <span id="min-p"></span>  <span id="max-p"></span></p>
+                                    <p class="price-num" style="color: #0b2e13;">Price: <span id="min-p"></span> <span id="max-p"></span></p>
                                 </div>
 
 
@@ -66,151 +66,38 @@
                                 </nav>
                                 <div class="pro-detail-sec row">
                                     <div class="col-12">
-                                    <h4 class="pro-heading text-center text-lg-left"><span>Sports </span> Collection</h4>
-                                    <p class="pro-text text-center text-lg-left">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
+                                        <h4 class="pro-heading text-center text-lg-left"><span>Sports </span> Collection</h4>
+                                        <p class="pro-text text-center text-lg-left">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
                                     </div>
                                 </div>
 
                                 <!-- START DISPLAY PRODUCT -->
                                 <div class="product-list row">
 
-                                    <div class="col-12 col-md-6 col-lg-3">
-                                        <div class="row product-item">
-                                             <div class="col-12 p-item-img">
-                                                 <img src="{{ asset('images/img\product-imgs\p1.jpg') }}" alt="images">
-                                                 <div class="p-item-overlay text-center d-flex justify-content-center align-items-center">
-                                                     <div class="btn-container">
-                                                     <a class="btn our-btn q-btn rounded-pill" onclick="open_model_window1('model-window5');">QUICK VIEW</a>
-                                                     <a class="btn our-btn btn-gradient rounded-pill" href="shop-cart.html">ADD TO CART</a>
-                                                     </div>
-                                                 </div>
-                                             </div>
-                                            <div class="col-12 p-item-detail">
-                                              <h4 class="text-center p-item-name">Nike Sports</h4>
-                                              <p class="text-center p-item-price">$100.00</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-3">
-                                        <div class="row product-item">
-                                             <div class="col-12 p-item-img">
-                                                 <img src="{{ asset('images/img\product-imgs\p2.jpg') }}" alt="images">
-                                                 <div class="p-item-overlay text-center d-flex justify-content-center align-items-center">
-                                                     <div class="btn-container">
-                                                     <a class="btn our-btn q-btn rounded-pill" onclick="open_model_window1('model-window5');">QUICK VIEW</a>
-                                                     <a class="btn our-btn btn-gradient rounded-pill" href="shop-cart.html">ADD TO CART</a>
-                                                     </div>
-                                                 </div>
-                                             </div>
-                                            <div class="col-12 p-item-detail">
-                                              <h4 class="text-center p-item-name">Adidas Sports</h4>
-                                              <p class="text-center p-item-price">$107.00</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-3">
-                                        <div class="row product-item">
-                                             <div class="col-12 p-item-img">
-                                                 <img src="{{ asset('images/img\product-imgs\p3.jpg') }}" alt="images">
-                                                 <div class="p-item-overlay text-center d-flex justify-content-center align-items-center">
-                                                     <div class="btn-container">
-                                                     <a class="btn our-btn q-btn rounded-pill" href="product-detail.html">QUICK VIEW</a>
-                                                     <a class="btn our-btn btn-gradient rounded-pill" href="shop-cart.html">ADD TO CART</a>
-                                                     </div>
-                                                 </div>
-                                             </div>
-                                            <div class="col-12 p-item-detail">
-                                              <h4 class="text-center p-item-name">Formal Sports</h4>
-                                              <p class="text-center p-item-price">$100.00</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-3">
-                                        <div class="row product-item">
-                                             <div class="col-12 p-item-img">
-                                                 <img src="{{ asset('images/img\product-imgs\p4.jpg') }}" alt="images">
-                                                 <div class="p-item-overlay text-center d-flex justify-content-center align-items-center">
-                                                     <div class="btn-container">
-                                                     <a class="btn our-btn q-btn rounded-pill" href="product-detail.html">QUICK VIEW</a>
-                                                     <a class="btn our-btn btn-gradient rounded-pill" href="shop-cart.html">ADD TO CART</a>
-                                                     </div>
-                                                 </div>
-                                             </div>
-                                            <div class="col-12 p-item-detail">
-                                              <h4 class="text-center p-item-name">Another Sports</h4>
-                                              <p class="text-center p-item-price">$100.00</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-3">
-                                        <div class="row product-item">
-                                             <div class="col-12 p-item-img">
-                                                 <img src="{{ asset('images/img\product-imgs\p3.jpg') }}" alt="images">
-                                                 <div class="p-item-overlay text-center d-flex justify-content-center align-items-center">
-                                                     <div class="btn-container">
-                                                     <a class="btn our-btn q-btn rounded-pill" href="product-detail.html">QUICK VIEW</a>
-                                                     <a class="btn our-btn btn-gradient rounded-pill" href="shop-cart.html">ADD TO CART</a>
-                                                     </div>
-                                                 </div>
-                                             </div>
-                                            <div class="col-12 p-item-detail">
-                                              <h4 class="text-center p-item-name">Formal Sports</h4>
-                                              <p class="text -center p-item-price">$165.00</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-3">
-                                        <div class="row product-item">
-                                             <div class="col-12 p-item-img">
-                                                 <img src="{{ asset('images/img\product-imgs\p2.jpg') }}" alt="images">
-                                                 <div class="p-item-overlay text-center d-flex justify-content-center align-items-center">
-                                                     <div class="btn-container">
-                                                     <a class="btn our-btn q-btn rounded-pill" href="product-detail.html">QUICK VIEW</a>
-                                                     <a class="btn our-btn btn-gradient rounded-pill" href="shop-cart.html">ADD TO CART</a>
-                                                     </div>
-                                                 </div>
-                                             </div>
-                                            <div class="col-12 p-item-detail">
-                                              <h4 class="text-center p-item-name">Adidas Sports</h4>
-                                              <p class="text-center p-item-price">$107.00</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-3">
-                                        <div class="row product-item">
-                                             <div class="col-12 p-item-img">
-                                                 <img src="{{ asset('images/img\product-imgs\p1.jpg') }}" alt="images">
-                                                 <div class="p-item-overlay text-center d-flex justify-content-center align-items-center">
-                                                     <div class="btn-container">
-                                                     <button class="btn our-btn q-btn rounded-pill" onclick="open_model_window1('model-window6');">QUICK VIEW</button>
-                                                     <a class="btn our-btn btn-gradient rounded-pill" href="shop-cart.html">ADD TO CART</a>
-                                                     </div>
-                                                 </div>
-                                             </div>
-                                            <div class="col-12 p-item-detail">
-                                              <h4 class="text-center p-item-name">Another Sports</h4>
-                                              <p class="text-center p-item-price">$160.00</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-3">
-                                        <div class="row product-item">
-                                             <div class="col-12 p-item-img">
-                                                 <img src="{{ asset('images/img\product-imgs\p6.jpg') }}" alt="images">
-                                                 <div class="p-item-overlay text-center d-flex justify-content-center align-items-center">
-                                                     <div class="btn-container">
-                                                     <a class="btn our-btn q-btn rounded-pill" href="product-detail.html">QUICK VIEW</a>
-                                                     <a class="btn our-btn btn-gradient rounded-pill" href="shop-cart.html">ADD TO CART</a>
-                                                     </div>
-                                                 </div>
-                                             </div>
-                                            <div class="col-12 p-item-detail">
-                                              <h4 class="text-center p-item-name">Nike Sports</h4>
-                                              <p class="text-center p-item-price">$100.00</p>
-                                            </div>
-                                        </div>
-                                    </div>
 
+                                    <div class="product-list row">
+                                        @foreach($products as $product)
+                                        <div class="col-12 col-md-6 col-lg-3">
+                                            <div class="row product-item">
+                                                <div class="col-12 p-item-img">
+                                                    <img src="{{ asset($product->Image) }}" alt="images">
+                                                    <div class="p-item-overlay text-center d-flex justify-content-center align-items-center">
+                                                        <div class="btn-container">
+                                                            <a class="btn our-btn q-btn rounded-pill" href="{{ route('frontend.productdetails', $product->id) }}" onclick="open_model_window1('model-window5');">QUICK VIEW</a>
+                                                            <a class="btn our-btn btn-gradient rounded-pill" onclick="addToCart(event);" href="{{ route('frontend.addToCart', ['id' => $product->id]) }}">ADD TO CART</a>
+
+                                                            <!-- Thêm các nút chức năng khác nếu cần -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 p-item-detail">
+                                                    <h4 class="text-center p-item-name">{{ $product->Name_sneaker }}</h4>
+                                                    <p class="text-center mb-0">{{ number_format($product->Price, 0, ',', '.') }} VND </p> <!-- Thêm các thông tin sản phẩm khác nếu cần -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @endforeach
+                                    </div>
                                 </div>
                                 <!-- END DISPLAY PRODUCT -->
 
@@ -236,7 +123,7 @@
                                                 </div>
 
                                                 <div class="col-md-12 d-block d-lg-none">
-                                                    <p class="d-none d-lg-block">© 2019 MegaOne.  Made by Themes Industry</p>
+                                                    <p class="d-none d-lg-block">© 2019 MegaOne. Made by Themes Industry</p>
                                                 </div>
                                             </div>
                                         </div>

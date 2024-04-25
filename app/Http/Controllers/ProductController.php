@@ -14,9 +14,10 @@ class ProductController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $products = Product::with('sizes')->get();
+        $products = Product::with('sizes')->take(3)->get();
         return view('admin.dashboard', compact('products', 'user'));
     }
+
 
     public function addImage()
     {
@@ -232,6 +233,6 @@ class ProductController extends Controller
     {
         $productDetails = Product::with('sizes')->findOrFail($id);
 
-        return view('frontend.productdetails', compact('productDetails'));
+        return view('navbar', compact('productDetails'));
     }
 }
