@@ -5,114 +5,6 @@
 <div class="main">
     <div class="body-overlay"></div>
     <div class="product-section contact-body">
-        <header class="contact-us-header">
-            <div class="container container-setting">
-                <div class="row justify-content-center about_us_nav">
-                    <nav class="navbar navbar-expand contact-us-nav navbar-light bg-light">
-                        <a href="..\index-product.html" class="navbar-brand">
-                            <img src="img\logo.png" alt="logo" /></a>
-
-                        <div class="menu-tog d-block d-lg-none" id="sidemenu_toggle1">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-
-                        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                            <ul class="navbar-nav ml-auto header-nav">
-                                <li class="nav-item dropdown cart-item">
-                                    <a href="#" class="nav-link" data-toggle="dropdown">
-                                        <i class="lni-cart">
-                                            <span class="badge badge-custom-setting">0</span></i>
-                                    </a>
-                                    <div class="dropdown-menu sm-menu mini-cart">
-                                        <div class="mini-cart-header">
-                                            <h4>Shopping Cart</h4>
-                                        </div>
-                                        <div class="mini-cart-body">
-                                            <div class="inner-card">
-                                                <div class="media">
-                                                    <div class="img-holder ml-1 mr-2">
-                                                        <img src="img\m1.jpg" class="align-self-center" alt="cartitem" />
-                                                    </div>
-                                                    <div class="media-body mt-auto mb-auto">
-                                                        <h5 class="name">Shoes</h5>
-                                                        <p class="category">Adidas Shoes Lastest</p>
-                                                        <p class="price">
-                                                            <span>$20</span>(x1)
-                                                            <a href="#">
-                                                                <i class="fa fa-trash dustbin"></i></a>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div class="media">
-                                                    <div class="img-holder ml-1 mr-2">
-                                                        <img src="img\m2.jpg" class="align-self-center" alt="cartitem" />
-                                                    </div>
-                                                    <div class="media-body mt-auto mb-auto">
-                                                        <h5 class="name">Shoes</h5>
-                                                        <p class="category">Adidas Shoes Lastest</p>
-                                                        <p class="price">
-                                                            <span>$20</span>(x1)
-                                                            <a href="#">
-                                                                <i class="fa fa-trash dustbin"></i></a>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div class="media">
-                                                    <div class="img-holder ml-1 mr-2">
-                                                        <img src="img\m1.jpg" class="align-self-center" alt="cartitem" />
-                                                    </div>
-                                                    <div class="media-body mt-auto mb-auto">
-                                                        <h5 class="name">Shoes</h5>
-                                                        <p class="category">Adidas Shoes Lastest</p>
-                                                        <p class="price">
-                                                            <span>$20</span>(x1)
-                                                            <a href="#">
-                                                                <i class="fa fa-trash dustbin"></i></a>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div class="media">
-                                                    <div class="img-holder ml-1 mr-2">
-                                                        <img src="img\m2.jpg" class="align-self-center" alt="cartitem" />
-                                                    </div>
-                                                    <div class="media-body mt-auto mb-auto">
-                                                        <h5 class="name">Shoes</h5>
-                                                        <p class="category">Adidas Shoes Lastest</p>
-                                                        <p class="price">
-                                                            <span>$20</span>(x1)
-                                                            <a href="#">
-                                                                <i class="fa fa-trash dustbin"></i></a>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="mini-cart-footer">
-                                            <div class="subtotal">
-                                                <span class="total-title">Total: </span>
-                                                <span class="total-price">
-                                                    <span class="Price-amount"> $135 </span>
-                                                </span>
-                                            </div>
-                                            <div class="actions">
-                                                <button type="button" class="btn view-bag rounded-pill">
-                                                    View Bag
-                                                </button>
-                                                <button type="button" class="btn view-cart btn-medium btn-gradient rounded-pill">
-                                                    Checkout
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </header>
 
         <div class="contact-us-content">
             <div class="slider-content">
@@ -243,22 +135,13 @@
                                         <div class="row product-quantity input_plus_mins no-gutters">
                                             <div class="qty col-12 col-lg-3 d-lg-flex align-items-lg-center d-inline-block">
                                                 <span class="minus bg-dark"><i class="lni-minus"></i></span>
-                                                <input type="number" class="count" name="qty" value="1" />
+                                                <input type="number" class="count" name="qty" value="1" min="1" />
                                                 <span class="plus bg-dark"><i class="lni-plus"></i></span>
-                                                <!--                                                <button class="btn btn-small our-btn btn-gradient rounded-pill flex-grow-0 ml-lg-0">ADD TO CART</button>-->
                                             </div>
                                             <div class="col-12 col-lg-9">
-                                                <form id="addToCartForm" action="{{ route('frontend.addToCart') }}" method="POST" style="display: none;">
-                                                    @csrf
-                                                </form>
-                                                <a href="#" class="add-cart" onclick="event.preventDefault(); document.getElementById('addToCartForm').submit();">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 56 56">
-                                                        <path fill="currentColor" d="M20.008 39.649H47.36c.913 0 1.71-.75 1.71-1.758s-.797-1.758-1.71-1.758H20.406c-1.336 0-2.156-.938-2.367-2.367l-.375-2.461h29.742c3.422 0 5.18-2.11 5.672-5.461l1.875-12.399a7.2 7.2 0 0 0 .094-.89c0-1.125-.844-1.899-2.133-1.899H14.641l-.446-2.976c-.234-1.805-.89-2.72-3.28-2.72H2.687c-.937 0-1.734.822-1.734 1.76c0 .96.797 1.781 1.735 1.781h7.921l3.75 25.734c.493 3.328 2.25 5.414 5.649 5.414m31.054-25.454L49.4 25.422c-.188 1.453-.961 2.344-2.344 2.344l-29.906.023l-1.993-13.594ZM21.86 51.04a3.766 3.766 0 0 0 3.797-3.797a3.781 3.781 0 0 0-3.797-3.797c-2.132 0-3.82 1.688-3.82 3.797c0 2.133 1.688 3.797 3.82 3.797m21.914 0c2.133 0 3.82-1.664 3.82-3.797c0-2.11-1.687-3.797-3.82-3.797c-2.109 0-3.82 1.688-3.82 3.797c0 2.133 1.711 3.797 3.82 3.797" />
-                                                    </svg>
-                                                    <button class="btn btn-small our-btn btn-gradient rounded-pill flex-grow-0 ml-lg-0">
-                                                        ADD TO CART
-                                                    </button>
+                                                <a class="btn btn-small our-btn btn-gradient rounded-pill flex-grow-0 ml-lg-0" id="addToCartBtn">Add to Cart</a>
                                             </div>
+
                                         </div>
 
                                         <div class="dropdown-divider"></div>
@@ -654,7 +537,7 @@
         // Khởi tạo mảng chứa các sản phẩm trong giỏ hàng từ localStorage
         let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
-        // Hiển thị số lượng sản phẩm trong giỏ hàng
+
         let cartCounter = document.getElementById('cartCounter');
         cartCounter.innerText = cartItems.length;
 
@@ -665,7 +548,7 @@
             const productId = "{{ $productDetails->id }}";
             const productName = "{{$productDetails->Name_sneaker }}";
             const productPrice = "{{$productDetails->Price}}";
-            const selectedSize = "{{$productDetails->Size}}";
+            const selectedSize = document.getElementById('sizeSelect').value;
             const productBrand = "{{$productDetails->Brand}}";
             const productOrigin = "{{$productDetails->Origin}}";
             const productColor = "{{$productDetails->Color}}";
@@ -714,6 +597,104 @@
             $(this).tab('show');
         });
     });
+</script>
+<script>
+    let addToCartBtn = document.getElementById('addToCartBtn');
+    // Thêm sự kiện click cho nút "Add to Cart"
+    addToCartBtn.addEventListener('click', function() {
+        // Lấy giá trị size được chọn từ select box
+        let selectedSize = sizeSelect.value;
+
+        // Lấy các thông tin sản phẩm từ PHP và gán cho các biến JavaScript
+        let productInfo = {
+            id: "{{$productDetails->id}}",
+            name: "{{$productDetails->Name_sneaker}}",
+            price: "{{$productDetails->Price}}",
+            size: selectedSize, // Sử dụng giá trị size được chọn từ select box
+            brand: "{{$productDetails->Brand}}",
+            origin: "{{$productDetails->Origin}}",
+            color: "{{$productDetails->Color}}",
+            image: "{{$productDetails->Image}}",
+            quantity: 1 // Số lượng mặc định khi thêm vào giỏ hàng
+        };
+
+        // Kiểm tra xem có sản phẩm trong giỏ hàng chưa
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+        // Thêm thông tin sản phẩm vào mảng cartItems
+        cartItems.push(productInfo);
+
+        // Lưu mảng cartItems vào localStorage
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+        // Thông báo cho người dùng biết rằng sản phẩm đã được thêm vào giỏ hàng thành công (nếu cần)
+        alert('Product added to cart successfully!');
+    });
+
+
+    let cartItems = JSON.parse(localStorage.getItem('cartItems'));
+    let miniCartItemsDiv = document.getElementById('miniCartItems');
+    let totalPrice = 0;
+    // Kiểm tra xem có sản phẩm trong giỏ hàng không
+    if (cartItems && cartItems.length > 0) {
+        // Duyệt qua mỗi sản phẩm trong giỏ hàng và hiển thị thông tin
+        cartItems.forEach(function(product) {
+            // Tạo phần tử div cho mỗi sản phẩm
+            let productDiv = document.createElement('div');
+            productDiv.classList.add('mini-cart-item');
+
+            // Tạo nội dung HTML cho sản phẩm
+            productDiv.innerHTML = `
+                <div class="item-thumb">
+                    <img src="${product.image}" alt="${product.name}">
+                </div>
+                <div class="item-details">
+                    <h6 class="item-name">${product.name}</h6>
+                    <p class="item-price">${product.price}</p>
+                    <p class="item-size">Size: ${product.size}</p>
+                    <p class="item-brand">Brand: ${product.brand}</p>
+                    <p class="item-origin">Origin: ${product.origin}</p>
+                    <p class="item-color">Color: ${product.color}</p>
+                    <p class="item-quantity">Quantity: ${product.quantity}</p>
+                </div>
+                <button class="btn-remove" onclick="removeCartItem(${product.id})">Remove</button>
+            `;
+            totalPrice += product.price * product.quantity;
+            // Thêm sản phẩm vào trong <div class="inner-card">
+            miniCartItemsDiv.appendChild(productDiv);
+        });
+    } else {
+        // Nếu không có sản phẩm trong giỏ hàng, hiển thị thông báo
+        miniCartItemsDiv.innerHTML = '<p>No products in the cart.</p>';
+    }
+
+    // Hàm xử lý sự kiện khi nhấn nút Remove
+    function removeCartItem(productId) {
+        // Lấy thông tin sản phẩm từ localStorage
+        let cartItems = JSON.parse(localStorage.getItem('cartItems'));
+
+        // Lọc ra sản phẩm cần xoá
+        let updatedCartItems = cartItems.filter(function(product) {
+            return product.id !== productId;
+        });
+
+        // Cập nhật lại localStorage
+        localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+
+        // Sau khi xoá, làm mới trang để cập nhật giỏ hàng
+        location.reload();
+    }
+
+    function formatCurrency(amount) {
+        // Chuyển đổi số thành chuỗi và thêm đơn vị tiền tệ
+        const formatter = new Intl.NumberFormat('vi-VN', {
+            style: 'currency',
+            currency: 'VND',
+            currencyDisplay: 'code', // Hiển thị mã tiền tệ thay vì ký hiệu
+            minimumFractionDigits: 0 // Số lượng chữ số sau dấu phẩy (để không hiển thị phần thập phân)
+        });
+        return formatter.format(amount).replace('₫', 'VND'); // Thay thế ký hiệu tiền tệ từ "₫" sang "VND"
+    }
 </script>
 <!-- JavaScript -->
 <script src="..\vendor\js\bundle.min.js"></script>

@@ -23,9 +23,6 @@
                             <a class="nav-link sub-menu-nav-appear" href="{{route('frontend.product')}}">Product</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link sub-menu-nav-appear" href="#">Product Detail Version</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link sub-menu-nav-appear" href="{{route('frontend.addToCart')}}">Shopping Cart</a>
                         </li>
                     </ul>

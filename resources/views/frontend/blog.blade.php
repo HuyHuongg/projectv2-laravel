@@ -16,12 +16,12 @@
                                     <div class="post-details alt-font text-center text-lg-left">
                                         July 24, 2019<span class="post-date"></span> <span class="post-separator">|</span>
                                         <span class="post-author">
-                                    By <a href="http://wexim.acrothemes.com/standard/author/admin/">Mark Anderson</a>
-                                    </span>
+                                            By <a href="http://wexim.acrothemes.com/standard/author/admin/">Mark Anderson</a>
+                                        </span>
                                         <span class="post-separator">|</span>
                                         <span class="post-categories single">
-                                    <span class="cat-links"><a href="http://wexim.acrothemes.com/standard/category/fashion/" rel="category tag">Fashion</a>, <a href="http://wexim.acrothemes.com/standard/category/travel/" rel="category tag">Travel</a></span>
-                                    </span>
+                                            <span class="cat-links"><a href="http://wexim.acrothemes.com/standard/category/fashion/" rel="category tag">Fashion</a>, <a href="http://wexim.acrothemes.com/standard/category/travel/" rel="category tag">Travel</a></span>
+                                        </span>
                                         <span class="post-separator">|</span>
                                     </div>
                                     <div class="post-content text-center text-lg-left">

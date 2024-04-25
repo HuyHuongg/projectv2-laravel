@@ -87,6 +87,7 @@
 
                                                             <!-- Thêm các nút chức năng khác nếu cần -->
                                                         </div>
+                                                        
                                                     </div>
                                                 </div>
                                                 <div class="col-12 p-item-detail">
@@ -159,7 +160,7 @@
             </ul>
         </div>
         <!--END SIDEBAR SECTION -->
-
+<script></script>
         <!--START OVERLAY MENU -->
         @include('navsidebar')
         <!-- END OVERLAY MENU -->

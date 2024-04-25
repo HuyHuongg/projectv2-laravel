@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Frontend;
+
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Size;
@@ -15,13 +16,16 @@ class HomeFE extends Controller
     public function product()
     {
         $products = Product::with('sizes')->get();
-         return view('frontend.product', compact('products'));
+        $products = Product::get();
+        $products = Product::latest()->paginate(9);
+        return view('frontend.product', compact('products'));
     }
     public function productdetails()
     {
         return view('frontend.productdetails');
     }
-    public function show($id) {
+    public function show($id)
+    {
         $productDetails = Product::with('sizes')->find($id);
         return view('frontend.productdetails', compact('productDetails'));
     }

@@ -4,7 +4,7 @@
             <!-- START HEADER NAV   -->
             <nav class="navbar navbar-expand  navbar-light bg-light">
                 <a href="{{ route('frontend.home') }}"><img class="d-none d-lg-block" src="{{ asset('images/img/logo.png') }}" class="manage-logo" alt="logo"></a>
-                <h4 class="brand-logo d-block d-lg-none"> <a href="{{ route('frontend.home') }}"><img src="product\img\logo-white.png" alt="white-logo"></a></h4>
+                <h4 class="brand-logo d-block d-lg-none"> <a href="{{ route('frontend.home') }}"><img src="{{ asset('images/img/logo.png') }}" alt="white-logo"></a></h4>
                 <div class="menu-tog d-block d-md-none" id="sidemenu_toggle1">
                     <span></span>
                     <span></span>
@@ -95,7 +95,7 @@
                                         </div>
                                         <div class="media">
                                             <div class="img-holder ml-1 mr-2">
-                                                <img src="{{ asset('images/img\m2.jpg') }} class=" align-self-center" alt="cartitem">
+                                                <img src="{{ asset('images/img\m2.jpg') }}" class="align-self-center" alt="cartitem">
                                             </div>
                                             <div class="media-body mt-auto mb-auto">
                                                 <h5 class="name">Shoes</h5>
