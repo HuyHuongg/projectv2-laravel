@@ -14,7 +14,7 @@
         <!--START CONTACT US-->
         <div class="contact-us-content">
             <div class="slider-content">
-                <div id="map"></div>
+                <div id="map" class="mb-3"></div>
             </div>
             <div class="contact-details">
                 <div class="container">

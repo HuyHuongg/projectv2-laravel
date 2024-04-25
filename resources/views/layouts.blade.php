@@ -24,8 +24,9 @@
     <link rel="stylesheet" href="{{ asset('css/fe/wow.css') }}">
     <link rel="stylesheet" href="{{ asset('css/fe/LineIcons.min.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+    <link rel="stylesheet" href="{{ asset('css/fe/leaflet.css') }}">
     <link rel="stylesheet" href="css/fe/LineIcons.min.css">
+    
     <!-- Custom Css  -->
     <link rel="stylesheet" href="{{asset('css/fe/LineIcons.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/fe/style.css')}}">
@@ -53,7 +54,6 @@
     <script src="{{ asset('js/bundle.min.js') }}"></script>
 <!-- Plugin Js -->
 <script src="{{ asset('js/jquery.fancybox.min.js') }}"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
 <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('js/swiper.min.js') }}"></script>
 <script src="{{ asset('js/jquery.cubeportfolio.min.js') }}"></script>
@@ -62,6 +62,8 @@
 <script src="{{ asset('js/parallaxie.min.js') }}"></script>
 <!-- Custom Script -->
 <script src="{{ asset('js/script.js') }}"></script>
+<script src="{{ asset('js/leaflet.js') }}"></script>
 
+<script src="{{ asset('js/map.js') }}"></script>
 </body>
 </html>

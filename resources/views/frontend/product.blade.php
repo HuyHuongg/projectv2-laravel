@@ -142,13 +142,11 @@
 
         <!--START SIDEBAR SECTION -->
         <div class="sidebar-section">
-
             <div class="side-nav-btn" id="sidemenu_toggle">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-
             <ul class="social-icons">
                 <li><a href="#." class="facebook_bg_hvr2"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
                 <li><a href="#." class="twitter_bg_hvr2"><i class="fab fa-twitter" aria-hidden="true"></i></a> </li>
@@ -157,7 +155,6 @@
             </ul>
         </div>
         <!--END SIDEBAR SECTION -->
-<script></script>
         <!--START OVERLAY MENU -->
         @include('navsidebar')
         <!-- END OVERLAY MENU -->
