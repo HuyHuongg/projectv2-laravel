@@ -144,13 +144,10 @@
 <div id="modal-data"></div>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Get the cart counter element
         const cartCounter = document.getElementById('cartCounter');
 
-        // Get the cart items from local storage or initialize to an empty array if not present
         const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
-        // Update the cart counter with the length of cart items
         cartCounter.textContent = cartItems.length;
     });
 </script>
