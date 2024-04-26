@@ -124,14 +124,16 @@
 
     <!--START SIDEBAR SECTION -->
     <div class="sidebar-section">
-        <div class="side-nav-btn site-nav-alignment" id="sidemenu_toggle">
+        <div class="side-nav-btn" id="sidemenu_toggle">
             <span></span>
             <span></span>
             <span></span>
         </div>
         <ul class="social-icons">
-            <li><a href="https://www.facebook.com/profile.php?id=61558257755008" class="facebook_bg_hvr2 wow slideInLeft" data-wow-duration="2.1s"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
-            <li><a href="#." class="instagram_bg_hvr2 wow slideInRight" data-wow-duration="2.1s"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+            <li><a href="#." class="facebook_bg_hvr2"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+            <li><a href="#." class="twitter_bg_hvr2"><i class="fab fa-twitter" aria-hidden="true"></i></a> </li>
+            <li><a href="#." class="linkdin_bg_hvr2"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
+            <li><a href="#." class="instagram_bg_hvr2"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
         </ul>
     </div>
     <!--END SIDEBAR SECTION -->
