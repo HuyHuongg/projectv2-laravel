@@ -3,8 +3,8 @@
         <div class="row justify-content-center">
             <!-- START HEADER NAV   -->
             <nav class="navbar navbar-expand  navbar-light bg-light">
-                <a href="{{ route('frontend.home') }}"><img class="d-none d-lg-block" src="{{ asset('images/img/logo.png') }}" class="manage-logo" alt="logo"></a>
-                <h4 class="brand-logo d-block d-lg-none"> <a href="{{ route('frontend.home') }}"><img src="{{ asset('images/img/logo.png') }}" alt="white-logo"></a></h4>
+                <a href="{{ route('frontend.home') }}"><img class="d-none d-lg-block" src="{{ asset('images/logosneaker.png') }}" class="manage-logo" alt="logo"></a>
+                <h4 class="brand-logo d-block d-lg-none"> <a href="{{ route('frontend.home') }}"><img src="{{ asset('images/logosneaker.png') }}" alt="white-logo"></a></h4>
                 <div class="menu-tog d-block d-md-none" id="sidemenu_toggle1">
                     <span></span>
                     <span></span>

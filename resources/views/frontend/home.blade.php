@@ -46,7 +46,7 @@
                         <!--  END PRODUCT SLIDER  -->
 
                         <div class="col-sm-12 featured_title d-sm-block d-md-block d-lg-none order-1">
-                            <h4 class="text-center text-lg-left"><span>Shoes</span> Shop</h4>
+                            <h4 class="text-center text-lg-left"><span>Sneaker</span> Store</h4>
                             <p class="featured_description">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
                             <div class="button-1 rounded-pill">
                                 <a href="{{route('frontend.product')}}" class="rounded-pill">SHOP NOW </a>
@@ -60,7 +60,7 @@
                             <div class="col-12 col-lg-9 offset-lg-3 detail-area">
                                 <div class="row">
                                     <div class="col-12 featured_title d-none d-lg-block">
-                                        <h4 class="text-center text-md-left"><span>Shoes</span> Store</h4>
+                                        <h4 class="text-center text-md-left"><span>Sneaker</span> Store</h4>
                                         <p class="">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
                                         <div class="button-1 rounded-pill">
                                             <a href="{{route('frontend.product')}}" class="rounded-pill">SHOW NOW</a>

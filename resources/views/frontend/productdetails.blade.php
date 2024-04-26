@@ -25,7 +25,7 @@
 
         <div class="contact-us-content">
             <div class="slider-content">
-                <div class="parallax-slide banner-slide" style="background: url('img/product-detail-bg.jpg')"></div>
+                <div class="parallax-slide banner-slide" style="background: url('{{ asset('images/img/product-detail-bg.jpg') }}')"></div>
 
                 <div class="product-section-body">
                     <div class="row no-gutters">
@@ -58,16 +58,8 @@
                                 <div class="product-add">
                                     <div class="row no-gutters">
                                         <div class="col-12">
-                                            <img src="img\add.jpg" />
+                                            <img src="{{ asset('images/img\add.jpg') }}" />
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="row R-rite">
-                                    <div class="col-12">
-                                        <p>
-                                            &copy; 2019 MegaOne Made by
-                                            <a class="web-link" href="http://www.themesindustry.com/" target="_blank">Themesindustry</a>
-                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -223,12 +215,6 @@
                                                 <div class="terms col-sm-12 col-md-4 col-lg-4">
                                                     <h4>30 Days Return</h4>
                                                     <p>SIMPLY RETURN 3 DAYS</p>
-                                                </div>
-
-                                                <div class="col-md-12 d-block d-lg-none">
-                                                    <p class="d-none d-lg-block">
-                                                        © 2019 MegaOne. Made by Themes Industry
-                                                    </p>
                                                 </div>
                                             </div>
                                         </div>

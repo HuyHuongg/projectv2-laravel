@@ -22,11 +22,10 @@
                         <div class="col-12 text-center">
                             <h4 class="heading">Let's Get In Touch</h4>
                             <ul class="contact-list">
-                                <li><span>Office Telephone :</span> 001 01085379709</li>
-                                <li><span>Mobile :</span> 001 63165370895</li>
-                                <li><span>Email :</span> admin@website.com</li>
-                                <li><span>Inquiries :</span> email@website.com</li>
-                                <li><span>Mon-Fri:</span> 9am to 6pm</li>
+                                <li><span>Office Telephone :</span> 0393234822</li>
+                                <li><span>Mobile :</span> 0998736223</li>
+                                <li><span>Email :</span> sneakerstore@gmail.com</li>
+                                <li><span>Mon-Fri:</span> 9am to 10pm</li>
                             </ul>
                         </div>
                         <div class="col-12 col-lg-8 offset-lg-2 text-center">
@@ -55,9 +54,6 @@
                                     </div>
                                 </form>
                             </div>
-                        </div>
-                        <div class="col-12 text-center footer_rights">
-                            <p class="text-center">&copy; 2019 MegaOne. Made With Love by <a class="web-link" href="http://www.themesindustry.com/" target="_blank">Themesindustry</a></p>
                         </div>
                     </div>
                 </div>

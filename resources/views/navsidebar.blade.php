@@ -23,23 +23,7 @@
                             <a class="nav-link sub-menu-nav-appear" href="{{route('frontend.product')}}">Product</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link sub-menu-nav-appear" href="{{route('frontend.addToCart')}}">Shopping Cart</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="nav-item main-item">
-                <a class="nav-link nav-appear" id="demo3">Pages <i class="fas fa-caret-right forward"></i></a>
-                <div class="submenu-overlay">
-                    <ul class="d-flex justify-content-lg-center">
-                        <li class="nav-item d-flex align-items-center">
-                            <a class="sub-menu-nav-appear"><i class="fas fa-arrow-alt-circle-left go-back-btn"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link sub-menu-nav-appear" href="#">FAQs</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link sub-menu-nav-appear" href="#">404</a>
+                            <a class="nav-link sub-menu-nav-appear" href="{{route('frontend.checkOut')}}">Shopping Cart</a>
                         </li>
                     </ul>
                 </div>

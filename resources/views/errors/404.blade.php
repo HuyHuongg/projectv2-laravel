@@ -16,7 +16,7 @@
             <!--START 404 INNER CONTEND-->
             <div class="contact-us-content">
                 <div class="slider-content">
-                    <div class="parallax-slide banner-slide" style='background:url("img/project-banner14.jpg")'>
+                    <div class="parallax-slide banner-slide" style='background:url("{{ asset('images/img/project-banner14.jpg') }}")'>
                     </div>
                     <div class="about_content">
                         <div class="container">
@@ -29,20 +29,11 @@
                                     <p class="heading_space">We are sorry, the page you want isn’t here anymore. May be
                                         one of the links below can help !</p>
                                     <div class="actions">
-                                        <a href="..\index-product.html"
+                                        <a href="{{route('frontend.home')}}"
                                             class="btn view-bag rounded-pill wow fadeInLeft">Back To Home</a>
-                                        <a href="faq.html"
-                                            class="btn view-cart  btn-medium btn-gradient rounded-pill wow fadeInRight">Get
-                                            A Quote</a>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 text-center footer_rights pb-5">
-                            <p>&copy; 2019 MegaOne. Made With Love by <a class="web-link"
-                                    href="http://www.themesindustry.com/" target="_blank">Themesindustry</a></p>
                         </div>
                     </div>
                 </div>
