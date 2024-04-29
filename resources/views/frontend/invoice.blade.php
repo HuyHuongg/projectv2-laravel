@@ -119,7 +119,7 @@
                             <a href="{{ route('frontend.home') }}">Back to Home</a>
                         </div>
                         <div style="margin-left: auto;">
-                            <img src="{{ asset('images/logo-shop.png') }}" alt="" width="150px">
+                            <img src="{{ asset('images/logosneaker.png') }}" alt="" width="150px">
                             <h2>&nbsp;&nbsp;&nbsp;&nbsp;Invoice</h2>
                         </div>
                         <div style="margin-left: auto;">

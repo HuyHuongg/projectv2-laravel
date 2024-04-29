@@ -21,6 +21,7 @@ Route::get('/blog', [HomeFE::class, 'blog'])->name('frontend.blog');
 Route::get('/productdetails', [HomeFE::class, 'productdetails'])->name('frontend.productdetails');
 Route::get('/product/{id}',  [HomeFE::class, 'show'])->name('frontend.productdetails');
 
+Route::get('/check-brands', [ProductController::class, 'checkBrands']);
 
 //order
 Route::post('/order-submit', [OrderController::class, 'createOrder'])->name('frontend.checkout.submit');

@@ -766,6 +766,7 @@ header .container-setting .navbar-nav .cart-item .badge-custom-setting{
 }
 .main .product-section .inner-product-sec .right-area .box1 img{
     height: 100%;
+    object-fit: cover;
 }
 /*particles*/
 #particles{
@@ -3666,7 +3667,7 @@ textarea:focus{
 }
 
 .cart_table .table-responsive thead tr>th {
-    padding: 15px 20px;
+    text-align: center;
     border-bottom-width: 1px;
     font-family: Poppins, sans-serif;
     font-weight:bold;
@@ -4099,7 +4100,7 @@ form.findus .form-control, form.findus textarea {
     }
 
     .main .product-section .inner-product-sec .right-area .box1 img{
-        width: 47%;
+        object-fit: cover;
         height: 100%;
     }
     .main .product-section .inner-product-sec .right-area .featured_products{
@@ -4757,7 +4758,7 @@ form.findus .form-control, form.findus textarea {
         display: none;
     }
     .side-nav-btn span {
-        background-color: white;
+        background-color: black;
     }
     header .container-setting nav {
         right: 7%;

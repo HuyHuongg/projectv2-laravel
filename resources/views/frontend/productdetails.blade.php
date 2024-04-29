@@ -361,9 +361,13 @@
 
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
 
-        // Thay vì reload trang, chỉ cần cập nhật số lượng sản phẩm trong giỏ hàng và hiển thị các sản phẩm mới
+        // Cập nhật số lượng sản phẩm trong giỏ hàng và hiển thị tổng giá trị giỏ hàng
+        alert("Added to cart successfully!");
         updateCartCounter();
         displayCartItems();
+
+        // Sau khi alert được hiển thị, reload lại trang
+        location.reload();
     });
 
 
@@ -392,6 +396,7 @@
         totalPriceElement.textContent = '$' + totalPrice;
     }
 </script>
+
 <script></script>
 <!-- JavaScript -->
 @endsection

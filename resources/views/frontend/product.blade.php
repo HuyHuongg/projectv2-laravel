@@ -24,13 +24,12 @@
                         <div class="col-12 col-lg-3 order-2 order-lg-1 bg-light sticky">
                             <div id="product-filter-nav" class="product-filter-nav">
                                 <div class="product-category">
-                                    <h5 class="filter-heading  text-center text-lg-left">Category</h5>
-                                    <ul>
-                                        <li><a href="#">June </a><span>(2)</span></li>
-                                        <li><a href="#">July </a><span>(4)</span></li>
-                                        <li><a href="#">Augest </a><span>(2)</span></li>
-                                        <li><a href="#">March </a><span>(7)</span></li>
-                                        <li><a href="#">May </a><span>(9)</span></li>
+                                    <h5 class="filter-heading  text-center text-lg-left">Brand</h5>
+                                    <ul id="brand-filter">
+                                        <li><a href="{{ route('admin.dashboard') }}">All Brands</a></li>
+                                        <li><a href="{{ route('admin.dashboard', ['Brand' => 'Jordan']) }}">Jordan</a></li>
+                                        <li><a href="{{ route('admin.dashboard', ['Brand' => 'Nike']) }}">Nike</a></li>
+                                        <!-- Add more brand links as needed -->
                                     </ul>
                                 </div>
                                 <div class="product-price">
@@ -38,7 +37,6 @@
                                     <div id="slider-range"></div>
                                     <p class="price-num" style="color: #0b2e13;">Price: <span id="min-p"></span> <span id="max-p"></span></p>
                                 </div>
-
 
                                 <button class="btn our-btn btn-gradient rounded-pill d-block ml-auto mr-auto ml-lg-0">Filter</button>
 
@@ -51,6 +49,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <!-- END  LEFT SIDEBAR SECTION -->
 
                         <!-- START PRODUCT LISTING SECTION -->
@@ -84,7 +83,7 @@
                                                         <div class="btn-container">
                                                             <a class="btn our-btn q-btn rounded-pill" href="{{ route('frontend.productdetails', $product->id) }}" onclick="open_model_window1('model-window5');">QUICK VIEW</a>
                                                         </div>
-                                                        
+
                                                     </div>
                                                 </div>
                                                 <div class="col-12 p-item-detail">
@@ -96,7 +95,7 @@
                                         @endforeach
                                     </div>
                                 </div>
-                                
+
                                 <!-- END DISPLAY PRODUCT -->
 
                                 <!-- START FEATURED FOOTER -->
@@ -164,7 +163,24 @@
 <!--END MAIN SECTION-->
 
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // When a brand link is clicked
+        $('#brand-filter a').click(function(e) {
+            e.preventDefault(); // Prevent default link behavior
 
+            // Get the selected brand
+            var brand = $(this).text().trim();
+
+            // Hide all products
+            $('.product').hide();
+
+            // Show only the products with the selected brand
+            $('.product[data-brand="' + brand + '"]').show();
+        });
+    });
+</script>
 <!--START LOAD MODEL WINDOW-->
 <div id="modal-data"></div>
 <!--END LOAD MODEL WINDOW-->

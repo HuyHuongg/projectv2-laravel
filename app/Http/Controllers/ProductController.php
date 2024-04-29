@@ -11,11 +11,19 @@ use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $user = Auth::user();
-        $products = Product::with('sizes')->take(3)->get();
-        return view('admin.dashboard', compact('products', 'user'));
+        $selectedBrand = $request->input('Brand'); // Get selected brand from the request
+
+        // Filter products by brand if a brand is selected
+        $productsQuery = Product::query();
+        if ($selectedBrand) {
+            $productsQuery->where('Brand', $selectedBrand);
+        }
+        $products = $productsQuery->with('sizes')->take(6)->get();
+
+        return view('admin.dashboard', compact('products', 'user', 'selectedBrand'));
     }
 
 

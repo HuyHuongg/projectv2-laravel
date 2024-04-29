@@ -17,7 +17,7 @@ class HomeFE extends Controller
     {
         $products = Product::with('sizes')->get();
         $products = Product::get();
-        $products = Product::latest()->paginate(9);
+        $products = Product::latest()->paginate(20);
         return view('frontend.product', compact('products'));
     }
     public function productdetails()

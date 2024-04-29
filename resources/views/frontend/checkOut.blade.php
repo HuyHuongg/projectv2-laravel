@@ -39,19 +39,18 @@
                                                 <th class="darkcolor">Product</th>
                                                 <th class="darkcolor">Price</th>
                                                 <th class="darkcolor">Quantity</th>
-                                                <th class="darkcolor">Total</th>
+                                                <th class="darkcolor">Total price</th>
+                                                <th>Act</th>
                                             </tr>
                                         </thead>
-                                        <tbody id="checkOutItems">
-
-                                        </tbody>
+                                        <tbody id="checkOutItems"></tbody>
                                     </table>
+
                                 </div>
 
                                 <div class="card-total">
-                                    <h4 class="heading">Card Total</h4>
                                     <p>
-                                    <h4 class="heading">Total Price:</h4>
+                                    <h4 class="heading">Total unit price: </h4>
                                     <h5 id="totalPriceAmount" class="heading"></h5>
                                     </p>
                                 </div>
@@ -68,20 +67,23 @@
                                         <input type="hidden" name="_token" value="iVkdLvKtdjz4nbSi23qbTxFmcq78wATMMtxen6A7" autocomplete="off" />
 
                                         <div class="row">
-                                            <div class="col-50">
+                                            <div class="col-12">
                                                 <label for="name">Full Name</label><br />
-                                                <input type="text" id="name" name="name" placeholder="Your name" required />
-                                                <br />
-                                                <label for="email">Email</label><br />
-                                                <input type="text" id="email" name="email" placeholder="abc@example.com" required />
-                                                <br />
-                                                <label for="phone">Phone Number</label><br />
-                                                <input type="text" id="phone" name="phone" placeholder="Phone number" required />
-                                                <br />
-                                                <label for="address">Address</label> <br />
-                                                <input type="text" id="address" name="address" placeholder="Ha Noi City, etc" required />
-                                                <input type="hidden" id="productData" name="productData" />
+                                                <input type="text" id="name" name="name" class="form-control" placeholder="Your name" required />
                                             </div>
+                                            <div class="col-12">
+                                                <label for="email">Email</label><br />
+                                                <input type="text" id="email" name="email" class="form-control" placeholder="abc@example.com" required />
+                                            </div>
+                                            <div class="col-12">
+                                                <label for="phone">Phone Number</label><br />
+                                                <input type="text" id="phone" name="phone" class="form-control" placeholder="Phone number" required />
+                                            </div>
+                                            <div class="col-12">
+                                                <label for="address">Address</label><br />
+                                                <input type="text" id="address" name="address" class="form-control" placeholder="Ha Noi City, etc" required />
+                                            </div>
+                                            <input type="hidden" id="productData" name="productData" />
                                         </div>
 
                                         <button type="submit" class="btn our-btn btn-gradient rounded-pill" role="button">
@@ -90,9 +92,21 @@
                                     </form>
                                 </div>
                             </div>
+                            <div class="col-12 col-lg-5 offset-lg-1 wow slideInUp" data-wow-duration="2s" style="margin: 0;">
+                                <div class="Commit-service" style="border: 1px solid #dee2e6; padding: 20px; ">
+                                    <h5 class="heading" style="font-size: 24px;">Commitments and policies</h5>
+                                    <ul>
+                                        <li><strong>Returns:</strong> We accept returns within 30 days of purchase. Items must be in their original condition.</li>
+                                        <li><strong>Exchanges:</strong> You can exchange your purchase within 60 days. Please bring your receipt.</li>
+                                        <li><strong>Refunds:</strong> Refunds will be issued to the original payment method within 7-10 business days after we receive your return.</li>
+                                        <li><strong>Shipping:</strong> We offer Cash on Delivery (COD) for all orders. No other payment methods are accepted for shipping.</li>
+                                        <li><strong>Customer Support:</strong> Our customer support team is available 24/7 to assist you. Contact us through our Facebook page messenger for any inquiries or assistance.</li>
+                                    </ul>
 
-
+                                </div>
+                            </div>
                         </div>
+
                         <!-- END SHOP CART CHECKOUT FORM -->
 
                     </div>
@@ -215,31 +229,32 @@
                 cartItems.forEach(function(item, index) {
                     let tr = document.createElement('tr');
                     tr.innerHTML = `
-            <td>
-                <div class="d-table">
-                    <div class="d-table-cell">
-                        <a class="shopping-product" href="${item.image}"><img src="${item.image}" alt="${item.name}"></a>
-                    </div>
-                    <div class="d-table-cell">
-                        <h4 class="product-name"><a href="product-detail.html">${item.name}</a></h4>
-                    </div>
-                </div>
-            </td>
-            <td>
-                <h4 class="text-center d-table-price amount">${formatCurrency(item.price)}</h4>
-            </td>
-            <td class="text-center">
-                <div class="quote text-center">
-                    <input type="text" value="${item.quantity}" class="rounded-pill quote" onchange="updateQuantity(${index}, this)">
-                </div>
-            </td>
-            <td>
-                <h4 class="text-center amount">${formatCurrency(item.price * item.quantity)}</h4>
-            </td>
-            <td>
-            <a href="#" class="btn-remove" onclick="removeCartItem(${index})"> <i class="fa fa-trash dushbin"></i></a>
-            </td>
-        `;
+    <td>
+        <div class="d-table">
+            <div class="d-table-cell">
+                <a class="shopping-product" href="${item.image}"><img src="${item.image}" alt="${item.name}"></a>
+            </div>
+            <div class="d-table-cell">
+                <h4 class="product-name"><a>${item.name}</a></h4>
+                <p>Size: ${item.size}</p> <!-- Thêm dòng này để hiển thị size -->
+            </div>
+        </div>
+    </td>
+    <td>
+        <h4 class="text-center d-table-price amount">${formatCurrency(item.price)}</h4>
+    </td>
+    <td class="text-center">
+    <div class="quote text-center">
+        <input type="number" value="${item.quantity}" min="1" class="rounded-pill quote" onchange="updateQuantity(${index}, this)">
+    </div>
+</td>
+    <td>
+        <h4 class="text-center amount">${formatCurrency(item.price * item.quantity)}</h4>
+    </td>
+    <td>
+        <a href="#" class="btn-remove" onclick="removeCartItem(${index})"> <i class="fa fa-trash dushbin"></i></a>
+    </td>
+`;
                     tbody.appendChild(tr);
 
                     updateTotalPrice();
@@ -273,7 +288,7 @@
                         <a class="shopping-product" href="${item.image}"><img src="${item.image}" alt="${item.name}"></a>
                     </div>
                     <div class="d-table-cell">
-                        <h4 class="product-name"><a href="product-detail.html">${item.name}</a></h4>
+                        <h4 class="product-name"><a>${item.name}</a></h4>
                     </div>
                 </div>
             </td>
@@ -281,21 +296,22 @@
                 <h4 class="text-center d-table-price amount">${formatCurrency(item.price)}</h4>
             </td>
             <td class="text-center">
-                <div class="quote text-center">
-                    <input type="text" value="${item.quantity}" class="rounded-pill quote" onchange="updateQuantity(${index}, this)">
-                </div>
-            </td>
+    <div class="quote text-center">
+        <input type="number" value="${item.quantity}" min="1" class="rounded-pill quote" onchange="updateQuantity(${index}, this)">
+    </div>
+</td>
             <td>
                 <h4 class="text-center amount">${formatCurrency(item.price * item.quantity)}</h4>
             </td>
             <td>
-                <button class="btn-remove" onclick="removeCartItem(${index})">Xoá</button>
+            <a href="#" class="btn-remove" onclick="removeCartItem(${index})"> <i class="fa fa-trash dushbin"></i></a>
             </td>
         `;
                     tbody.appendChild(tr);
                 });
 
                 updateTotalPrice(); // Gọi hàm cập nhật tổng giá tiền sau mỗi lần cập nhật giỏ hàng
+
             }
 
             // Hàm cập nhật tổng giá tiền
@@ -312,6 +328,24 @@
 
                 // Console log tổng giá tiền để kiểm tra
                 console.log('Tổng giá tiền:', totalPrice);
+            }
+
+            function updateQuantity(index, input) {
+                const newValue = parseInt(input.value);
+                if (newValue <= 0) {
+                    alert("Số lượng không hợp lệ. Vui lòng nhập một số lớn hơn 0.");
+                    input.value = 1; // Đặt giá trị về 1 nếu người dùng nhập số lượng nhỏ hơn hoặc bằng 0
+                } else {
+                    // Lấy danh sách sản phẩm từ localStorage
+                    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+                    // Cập nhật số lượng cho sản phẩm tại chỉ số index
+                    cartItems[index].quantity = newValue;
+                    // Lưu danh sách sản phẩm mới vào localStorage
+                    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+                    // Cập nhật giá trị tổng giá tiền và hiển thị lại giỏ hàng
+                    updateCart();
+                }
             }
         </script>
         <!--START SIDEBAR SECTION -->

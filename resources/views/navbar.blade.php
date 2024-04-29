@@ -13,7 +13,7 @@
                 <div class="collapse navbar-collapse transparent-nav" id="navbarTogglerDemo03">
                     <ul class="navbar-nav ml-auto header-nav">
                         <li class="nav-item dropdown cart-item">
-                            <a href="#" class="nav-link" onclick="event.preventDefault()" data-toggle="dropdown">
+                            <a href="{{route('frontend.checkOut')}}" class="nav-link">
                                 <i class="fa-solid fa-cart-shopping"> <span id="cartCounter" class="badge badge-custom-setting">0</span></i>
                             </a>
                             <script>
@@ -40,8 +40,6 @@
                                     // Lưu giá trị mới của cartCounter vào localStorage
                                     localStorage.setItem('cartCounter', cartCounter);
                                 }
-
-                                
                             </script>
                             <script>
                                 document.addEventListener('DOMContentLoaded', function() {
@@ -76,6 +74,9 @@
 
                                     // Cập nhật giá trị cartCounter trên giao diện
                                     document.getElementById('cartCounter').innerText = cartCounter;
+
+                                    // Reload trang sau khi thêm sản phẩm vào giỏ hàng thành công
+                                    location.reload();
                                 });
                             </script>
                             <div class="dropdown-menu sm-menu mini-cart">
@@ -83,13 +84,13 @@
                                     <h4>Shopping Cart</h4>
                                 </div>
                                 <div class="mini-cart-body">
-                                    <div class="inner-card" id="miniCartItems">
-                                        <!-- Các sản phẩm sẽ được in ra từ vòng for -->
-                                    </div>
+
                                     <script>
                                         // Hàm thêm sản phẩm vào giỏ hàng
                                         function addProductToCart(product) {
                                             let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+                                            let tbody = document.querySelector('#miniCartItems');
+
                                             cartItems.push(product);
                                             localStorage.setItem('cartItems', JSON.stringify(cartItems));
 
@@ -191,32 +192,7 @@
                                         }
 
                                         // Hàm cập nhật mini cart
-                                        function updateMiniCart() {
-                                            let miniCartItemsDiv = document.getElementById('miniCartItems');
-                                            miniCartItemsDiv.innerHTML = ''; // Xóa nội dung cũ của miniCartItemsDiv
-                                            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-                                            for (let i = 0; i < cartItems.length; i++) {
-                                                let item = cartItems[i];
-                                                let html = `
-            <div class="media">
-                <div class="img-holder ml-1 mr-2">
-                    <img src="${item.image}" class="align-self-center" alt="cartitem">
-                </div>
-                <div class="media-body mt-auto mb-auto">
-                    <h5 class="name">${item.name}</h5>
-                    <p class="category">${item.color} - ${item.size}</p>
-                    <p class="price">
-                        <span>${formatCurrency(item.price)}</span>${item.quantity}
-                        <a href="#" onclick="removeCartItem(${i})">
-                            <i class="fa fa-trash dustbin"></i>
-                        </a>
-                    </p>
-                </div>
-            </div>
-        `;
-                                                miniCartItemsDiv.insertAdjacentHTML('beforeend', html);
-                                            }
-                                        }
+
 
                                         function formatCurrency(amount) {
                                             // Chuyển đổi số thành chuỗi và thêm đơn vị tiền tệ
@@ -229,14 +205,43 @@
                                             return formatter.format(amount).replace('₫', 'VND'); // Thay thế ký hiệu tiền tệ từ "₫" sang "VND"
                                         }
 
-                                        document.addEventListener('DOMContentLoaded', function() {
-                                            // Gắn sự kiện click cho nút refresh cart
-                                            let refreshCartBtn = document.getElementById('refreshCartBtn');
-                                            refreshCartBtn.addEventListener('click', function() {
-                                                // Gọi hàm updateMiniCart để làm mới mini cart
-                                                updateMiniCart();
-                                            });
-                                        });
+                                        function updateMiniCart() {
+                                            // Lấy danh sách các sản phẩm từ localStorage
+                                            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+                                            // Đối với mỗi sản phẩm trong giỏ hàng, tạo một phần tử HTML tương ứng và thêm vào #miniCartItems
+                                            let miniCartItemsDiv = document.getElementById('miniCartItems');
+                                            miniCartItemsDiv.innerHTML = ''; // Xóa nội dung hiện tại của mini cart trước khi cập nhật
+                                            if (cartItems.length === 0) {
+                                                // Nếu không có sản phẩm trong giỏ hàng, hiển thị thông báo "No products in cart"
+                                                miniCartItemsDiv.innerHTML = '<p>No products in cart</p>';
+                                            } else {
+                                                for (let i = 0; i < cartItems.length; i++) {
+                                                    let item = cartItems[i];
+                                                    let html = `
+                    <div class="media">
+                        <div class="img-holder ml-1 mr-2">
+                            <img src="${item.image}" class="align-self-center" alt="cartitem">
+                        </div>
+                        <div class="media-body mt-auto mb-auto">
+                            <h5 class="name">${item.name}</h5>
+                            <p class="category">${item.color} - ${item.size}</p>
+                            <p class="price">
+                                <span>${formatCurrency(item.price)}</span>
+                                <div style="display:flex; justify-content:space-between">
+                                    <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${i}, this)" style="width: 70px!important">
+                                    <a href="#" onclick="removeCartItem(${i})" style="width:20px">
+                                        <i class="fa fa-trash dustbin"></i>
+                                    </a>
+                                </div>
+                            </p>
+                        </div>
+                    </div>
+                `;
+                                                    miniCartItemsDiv.insertAdjacentHTML('beforeend', html);
+                                                }
+                                            }
+                                        }
                                     </script>
                                 </div>
                                 <div class="mini-cart-footer">
@@ -245,7 +250,6 @@
                                         <span class="total-price" id="totalPrice"></span>
                                     </div>
                                     <div class="actions" style="display: flex;">
-                                        <a class="btn btn-medium btn-gradient rounded-pill" style="color: white;" id="refreshCartBtn">Refresh Cart</a>
                                         <a class="btn view-cart btn-medium btn-gradient rounded-pill" href="{{route('frontend.checkOut')}}" style="color: white;">Check Out</a>
                                     </div>
                                 </div>
