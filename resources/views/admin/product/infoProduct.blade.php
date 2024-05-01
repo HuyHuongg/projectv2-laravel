@@ -50,14 +50,13 @@
         <div class="sidebar" data-color="purple" data-image="{{ asset('assets/img/sidebar-5.jpg') }}">
             <div class="sidebar-wrapper">
                 <div class="logo">
-                    <a href="/admin/dashboard" class="simple-text">
-                        HTH ADMIN
+                    <a href="{{ route('admin.dashboard') }}" class="simple-text">
+                        HTH SHOP
                     </a>
                 </div>
-
                 <ul class="nav">
                     <li>
-                        <a href="/admin/dashboard">
+                        <a href="{{ route('admin.dashboard') }}">
                             <i class="pe-7s-graph"></i>
                             <p>Dashboard</p>
                         </a>
@@ -69,7 +68,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ url('table') }}">
+                        <a href="/admin/order-list">
                             <i class="pe-7s-note2"></i>
                             <p>Order List</p>
                         </a>
@@ -78,13 +77,6 @@
                         <a href="/admin/product">
                             <i class="pe-7s-shopbag"></i>
                             <p>Products</p>
-                        </a>
-                    </li>
-
-                    <li class="active-pro">
-                        <a href="{{ url('upgrade') }}">
-                            <i class="pe-7s-rocket"></i>
-                            <p>Upgrade to PRO</p>
                         </a>
                     </li>
                 </ul>
@@ -134,8 +126,15 @@
             </nav>
 
             <div class="content">
+                <div style="padding: 10px;">
+                    <a href="/admin/product" style="display: block;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                            <path style="font-size: 15px;" fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+                        </svg>
+                    </a>
+                </div>
                 <div class="bg-gray-100 ">
-                    <div class="border-1 shadow-md shadow-gray-700 rounded-lg">
+                    <div class="border-1 shadow-md  rounded-lg">
                         <div class="flex rounded-t-lg sm:px-2 w-full">
                             <div class=" overflow-hidden sm:rounded-[15px] sm:relative sm:p-0 top-10 left-5 p-3">
                                 <img src="{{$product->Image}}" class="object-cover h-[250px] w-full" />

@@ -42,14 +42,13 @@
 
             <div class="sidebar-wrapper">
                 <div class="logo">
-                    <a href="/admin/dashboard" class="simple-text">
-                        HTH ADMIN
+                    <a href="{{ route('admin.dashboard') }}" class="simple-text">
+                        HTH SHOP
                     </a>
                 </div>
-
                 <ul class="nav">
                     <li>
-                        <a href="/admin/dashboard">
+                        <a href="{{ route('admin.dashboard') }}">
                             <i class="pe-7s-graph"></i>
                             <p>Dashboard</p>
                         </a>
@@ -61,7 +60,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ url('table') }}">
+                        <a href="/admin/order-list">
                             <i class="pe-7s-note2"></i>
                             <p>Order List</p>
                         </a>
@@ -70,13 +69,6 @@
                         <a href="/admin/product">
                             <i class="pe-7s-shopbag"></i>
                             <p>Products</p>
-                        </a>
-                    </li>
-
-                    <li class="active-pro">
-                        <a href="{{ url('upgrade') }}">
-                            <i class="pe-7s-rocket"></i>
-                            <p>Upgrade to PRO</p>
                         </a>
                     </li>
                 </ul>
@@ -93,12 +85,44 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <p class="navbar-brand">Products List</p>
+                        <a class="navbar-brand" href="#">Dashboard</a>
                     </div>
                     <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-left">
+                            <li>
+                                <a href="/admin/dashboard" class="dropdown-toggle" data-toggle="dropdown">
+                                    <!-- <i class="fa fa-dashboard"></i> -->
+                                    <p class="hidden-lg hidden-md">Dashboard</p>
+                                </a>
+                            </li>
+                            <!-- <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-globe"></i>
+                                    <b class="caret hidden-lg hidden-md"></b>
+                                    <p class="hidden-lg hidden-md">
+                                        5 Notifications
+                                        <b class="caret"></b>
+                                    </p>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Notification 1</a></li>
+                                    <li><a href="#">Notification 2</a></li>
+                                    <li><a href="#">Notification 3</a></li>
+                                    <li><a href="#">Notification 4</a></li>
+                                    <li><a href="#">Another notification</a></li>
+                                </ul>
+                            </li> -->
+                            <!-- <li>
+                                <a href="">
+                                    <i class="fa fa-search"></i>
+                                    <p class="hidden-lg hidden-md">Search</p>
+                                </a>
+                            </li> -->
+                        </ul>
+
                         <ul class="nav navbar-nav navbar-right">
                             <li>
-                                <a href="admin/userList">
+                                <a href="/admin/userList">
                                     <p>{{ $user->name }} ( {{$user->role}} )</p>
                                 </a>
                             </li>
@@ -112,6 +136,12 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/admin/product/add-product">ADD PRODUCT</a></li>
+                                    <!-- <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Separated link</a></li> -->
                                 </ul>
                             </li>
                             <li>
@@ -119,17 +149,24 @@
                                     <p>Log out</p>
                                 </a>
                             </li>
-                            <li class="separator hidden-lg hidden-md"></li>
+                            <li class="separator hidden-lg"></li>
                         </ul>
                     </div>
                 </div>
             </nav>
+
 
             <div class="content">
                 <div class="content">
                     <form id="productForm" action="{{ route('admin.product.update', ['id' => $product->id]) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
+                        <a href="/admin/product">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+                            </svg>
+                        </a>
+
                         <div class="form-group">
                             <label for="image" class="btn btn-info p-2" style="cursor: pointer;">IMAGE PRODUCT:</label>
                             <input type="file" name="Image" id="image" style="opacity: 0; width: 0.1px; height: 0.1px; position: absolute; overflow: hidden; z-index: -1;" accept="image/*" class="form-control-file">

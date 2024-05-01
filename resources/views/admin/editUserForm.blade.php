@@ -42,14 +42,13 @@
 
             <div class="sidebar-wrapper">
                 <div class="logo">
-                    <a href="/admin/dashboard" class="simple-text">
-                        HTH ADMIN
+                    <a href="{{ route('admin.dashboard') }}" class="simple-text">
+                        HTH SHOP
                     </a>
                 </div>
-
                 <ul class="nav">
                     <li>
-                        <a href="/admin/dashboard">
+                        <a href="{{ route('admin.dashboard') }}">
                             <i class="pe-7s-graph"></i>
                             <p>Dashboard</p>
                         </a>
@@ -61,7 +60,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ url('table') }}">
+                        <a href="/admin/order-list">
                             <i class="pe-7s-note2"></i>
                             <p>Order List</p>
                         </a>
@@ -70,13 +69,6 @@
                         <a href="/admin/product">
                             <i class="pe-7s-shopbag"></i>
                             <p>Products</p>
-                        </a>
-                    </li>
-
-                    <li class="active-pro">
-                        <a href="{{ url('upgrade') }}">
-                            <i class="pe-7s-rocket"></i>
-                            <p>Upgrade to PRO</p>
                         </a>
                     </li>
                 </ul>

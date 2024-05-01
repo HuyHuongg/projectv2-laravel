@@ -30,6 +30,16 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="{{ asset('assets/css/pe-icon-7-stroke.css') }}" rel="stylesheet" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
+    <link href="https://cdn.datatables.net/2.0.5/css/dataTables.bootstrap4.css" />
+    <link href="https://cdn.datatables.net/responsive/3.0.2/css/responsive.bootstrap4.css" />
+    <style>
+        .dt-info,
+        .dt-length {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -42,58 +52,33 @@
 
             <div class="sidebar-wrapper">
                 <div class="logo">
-                    <a href="/admin/dashboard" class="simple-text">
-                        HTH ADMIN
+                    <a href="{{ route('admin.dashboard') }}" class="simple-text">
+                        HTH SHOP
                     </a>
                 </div>
-
                 <ul class="nav">
                     <li>
-                        <a href="/admin/dashboard">
+                        <a href="{{ route('admin.dashboard') }}">
                             <i class="pe-7s-graph"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
                     <li class="active">
-                        <a href="{{ url('user') }}">
+                        <a href="/admin/userList">
                             <i class="pe-7s-user"></i>
                             <p>User Profile</p>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ url('table') }}">
+                        <a href="/admin/order-list">
                             <i class="pe-7s-note2"></i>
-                            <p>Table List</p>
+                            <p>Order List</p>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ url('typography') }}">
-                            <i class="pe-7s-news-paper"></i>
-                            <p>Typography</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ url('icons') }}">
-                            <i class="pe-7s-science"></i>
-                            <p>Icons</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ url('maps') }}">
-                            <i class="pe-7s-map-marker"></i>
-                            <p>Maps</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ url('notifications') }}">
-                            <i class="pe-7s-bell"></i>
-                            <p>Notifications</p>
-                        </a>
-                    </li>
-                    <li class="active-pro">
-                        <a href="{{ url('upgrade') }}">
-                            <i class="pe-7s-rocket"></i>
-                            <p>Upgrade to PRO</p>
+                        <a href="/admin/product">
+                            <i class="pe-7s-shopbag"></i>
+                            <p>Products</p>
                         </a>
                     </li>
                 </ul>
@@ -110,21 +95,20 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Table List</a>
+                        <a class="navbar-brand" href="#">Dashboard</a>
                     </div>
                     <div class="collapse navbar-collapse">
-                        <!-- <ul class="nav navbar-nav navbar-left">
+                        <ul class="nav navbar-nav navbar-left">
                             <li>
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-dashboard"></i>
+                                <a href="/admin/dashboard" class="dropdown-toggle" data-toggle="dropdown">
+                                    <!-- <i class="fa fa-dashboard"></i> -->
                                     <p class="hidden-lg hidden-md">Dashboard</p>
                                 </a>
                             </li>
-                            <li class="dropdown">
+                            <!-- <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="fa fa-globe"></i>
-                                    <b class="caret hidden-sm hidden-xs"></b>
-                                    <span class="notification hidden-sm hidden-xs">5</span>
+                                    <b class="caret hidden-lg hidden-md"></b>
                                     <p class="hidden-lg hidden-md">
                                         5 Notifications
                                         <b class="caret"></b>
@@ -137,37 +121,37 @@
                                     <li><a href="#">Notification 4</a></li>
                                     <li><a href="#">Another notification</a></li>
                                 </ul>
-                            </li>
-                            <li>
+                            </li> -->
+                            <!-- <li>
                                 <a href="">
                                     <i class="fa fa-search"></i>
                                     <p class="hidden-lg hidden-md">Search</p>
                                 </a>
-                            </li>
-                        </ul> -->
+                            </li> -->
+                        </ul>
 
                         <ul class="nav navbar-nav navbar-right">
                             <li>
-                                <a href="">
-                                    <p>Account</p>
+                                <a href="/admin/userList">
+                                    <p>{{ $user->name }} ( {{$user->role}} )</p>
                                 </a>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <p>
-                                        Dropdown
+                                        Action
                                         <b class="caret"></b>
                                     </p>
 
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="/admin/product/add-product">ADD PRODUCT</a></li>
+                                    <!-- <li><a href="#">Another action</a></li>
                                     <li><a href="#">Something</a></li>
                                     <li><a href="#">Another action</a></li>
                                     <li><a href="#">Something</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="#">Separated link</a></li>
+                                    <li><a href="#">Separated link</a></li> -->
                                 </ul>
                             </li>
                             <li>
@@ -175,74 +159,101 @@
                                     <p>Log out</p>
                                 </a>
                             </li>
-                            <li class="separator hidden-lg hidden-md"></li>
+                            <li class="separator hidden-lg"></li>
                         </ul>
                     </div>
                 </div>
             </nav>
 
             <div class="content">
-                <div class="container-fluid">
-                    <div class="row">
+                <div class="container">
+                    <!-- <div class="row">
                         <div class="col-md-12">
-                            <div class="card">
-                                <div class="header">
-                                    <h4 class="title">List User</h4>
-                                    <p class="category">ADMIN - SELLER</p>
-                                </div>
-                                <div class="content table-responsive table-full-width">
-                                    <table class="table table-hover table-striped">
-                                        <thead>
-                                            <th>Username</th>
-                                            <th>Email</th>
-                                            <th>Address</th>
-                                            <th>Phone Number</th>
-                                            <th>Role</th>
-                                            <th>Status</th>
-                                            <th>Edit</th>
-                                            <th>Delete</th>
-                                        </thead>
-                                        <tbody>
-                                            @foreach($users as $user)
-                                            <tr>
-                                                <td>{{ $user->name }}</td>
-                                                <td>{{ $user->email }}</td>
-                                                <td>{{ $user->address }}</td>
-                                                <td>{{ $user->phone_number }}</td>
-                                                <td>{{ $user->role }}</td>
-                                                <td>{{ $user->is_active ? 'Activated' : 'Not Activated' }}</td>
-                                                <td>
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                            <a href="{{ route('admin.editUserForm', ['user' => $user->id]) }}" class="btn btn-primary search">{{ __('Edit User') }}</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                            <form action="{{ route('admin.deleteUser', ['user' => $user->id]) }}" method="POST" style="display: inline;" onsubmit="return confirm('Bạn có chắc chắn muốn xoá người dùng không?');">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                                <button type="submit" class="btn btn-danger">{{ __('Delete User') }}</button>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            @endforeach
-                                            @if($users->isEmpty())
-                                            <tr>
-                                                <td colspan="8">No users found.</td>
-                                            </tr>
-                                            @endif
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                            </div>
-                        </div>
+                            <div class="card"> -->
+                    <div class="header">
+                        <h4 class="title">List User</h4>
+                        <p class="category">ADMIN - SELLER</p>
                     </div>
+                    <!-- <div class="content table-responsive table-full-width"> -->
+                    <table id="example" class="table table-striped table-bordered nowrap" style="width:100%; margin-top: 15px">
+                        <thead>
+                            <th>Username: </th>
+                            <th>Email: </th>
+                            <th>Address: </th>
+                            <th>Phone Number (+84): </th>
+                            <th>Role: </th>
+                            <th>Status: </th>
+                            <th>Edit: </th>
+                            <th>Delete: </th>
+                        </thead>
+                        <tbody>
+                            @foreach($users as $user)
+                            <tr>
+                                <td class="dtr-control sorting_1">{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>{{ $user->address }}</td>
+                                <td>{{ $user->phone_number }}</td>
+                                <td>{{ $user->role }}</td>
+                                <td>{{ $user->is_active ? 'Activated' : 'Not Activated' }}</td>
+                                <td>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <a href="{{ route('admin.editUserForm', ['user' => $user->id]) }}" class="btn btn-primary search">{{ __('Edit User') }}</a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <form action="{{ route('admin.deleteUser', ['user' => $user->id]) }}" method="POST" style="display: inline;" onsubmit="return confirm('Bạn có chắc chắn muốn xoá người dùng không?');">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">{{ __('Delete User') }}</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            @endforeach
+                            @if($users->isEmpty())
+                            <tr>
+                                <td colspan="8">No users found.</td>
+                            </tr>
+                            @endif
+                        </tbody>
+                    </table>
+
+                    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+                    <script src="https://cdn.datatables.net/2.0.5/js/dataTables.js"></script>
+                    <script src="https://cdn.datatables.net/2.0.5/js/dataTables.bootstrap4.js"></script>
+                    <script src="https://cdn.datatables.net/responsive/3.0.2/js/dataTables.responsive.js"></script>
+                    <script src="https://cdn.datatables.net/responsive/3.0.2/js/responsive.bootstrap4.js"></script>
+                    <script>
+                        $('#example').DataTable({
+                            responsive: true,
+                            searching: true,
+                            paging: true,
+                            ordering: true,
+                            info: true,
+                            lengthChange: true,
+                            autoWidth: false,
+                            columnDefs: [{
+                                    targets: [0],
+                                    searchable: true
+                                },
+                                {
+                                    targets: '_all',
+                                    searchable: false
+                                }
+                            ]
+                        });
+                    </script>
+                    <!-- </div> -->
+                    <!-- </div> -->
+                    <!-- </div> -->
+                    <!-- </div> -->
                 </div>
             </div>
 
