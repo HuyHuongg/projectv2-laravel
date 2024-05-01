@@ -29,6 +29,7 @@ class OrderController extends Controller
         return redirect()->route('user.orderList')->with('success', 'Update Error');
     }
 
+
     public function showByPhone($phone)
     {
         // Tìm khách hàng dựa trên số điện thoại
@@ -58,6 +59,14 @@ class OrderController extends Controller
 
         // Trả về view với dữ liệu khách hàng, số điện thoại và đơn hàng
         return view('frontend.orders', compact('customer', 'phone', 'orders', 'status'));
+    }
+
+    public function showOrders($customerId)
+    {
+        $customer = Customer::find($customerId);
+        $orders = Order::where('customer_id', $customerId)->get();
+        $orderDetails = OrderDetail::whereIn('order_id', $orders->pluck('id'))->get();
+        return view('frontend.searchOrder', compact('customer', 'orders', 'orderDetails'));
     }
 
 
@@ -187,6 +196,35 @@ class OrderController extends Controller
             ->get();
         return view('admin.ordList', compact('pendingOrders'));
     }
+    public function timkiem(Request $request)
+    {
+        $query = $request->input('query');
+        if (empty($query)) {
+            return view('frontend.searchOrder')->with('none', 'Please input a phone number.');
+        }
+
+        // Thực hiện truy vấn tìm kiếm trong cơ sở dữ liệu sử dụng Eloquent
+        $results = Customer::where('phone', 'LIKE', '%' . $query . '%')->get();
+
+        // Kiểm tra xem có khách hàng nào được tìm thấy hay không
+        if ($results->isEmpty()) {
+            // Nếu không có khách hàng nào được tìm thấy, trả về view với thông báo
+            return view('frontend.searchOrder')->with('message', 'Customer not exist');
+        }
+
+        // Nếu có khách hàng được tìm thấy, tiếp tục lấy danh sách đơn hàng tương ứng
+        $orderIds = [];
+        foreach ($results as $customer) {
+            $orderIds[$customer->id] = $customer->orders()->pluck('order_id')->toArray();
+        }
+        $orders = $customer->orders()->with('orderDetails')->get();
+
+        return view('frontend.searchOrder', ['results' => $results, 'orderIds' => $orderIds, 'orders' => $orders])->with('success', 'Search successful.');
+    }
+
+
+
+
 
 
     public function showInvoice()

@@ -93,3 +93,4 @@ Route::get('/order-details', function () {
 });
 
 Route::get('/orders/{phone}', [OrderController::class, 'showByPhone'])->name('frontend.orders');
+Route::get('/searchOrder', [OrderController::class, 'timkiem'])->name('frontend.searchOrder');

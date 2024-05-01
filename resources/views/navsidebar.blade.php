@@ -10,7 +10,7 @@
                 <a class="nav-link nav-appear" href="{{route('frontend.home')}}">Home</a>
             </li>
             <li class="nav-item active main-item">
-                <a class="nav-link nav-appear"  id="demo1"  href="{{route('frontend.blog')}}">Blog</a>
+                <a class="nav-link nav-appear" id="demo1" href="{{route('frontend.blog')}}">Blog</a>
             </li>
             <li class="nav-item main-item">
                 <a class="nav-link nav-appear" id="demo2">Products <i class="fas fa-caret-right forward"></i></a>
@@ -35,7 +35,7 @@
                 <a class="nav-link nav-appear" href="{{route('frontend.contact')}}">Contact Us</a>
             </li>
             <li class="nav-item main-item">
-                <a class="nav-link nav-appear" href="{{route('frontend.fmo')}}">Find My Order</a>
+                <a class="nav-link nav-appear" href="{{route('frontend.searchOrder')}}">Find My Order</a>
             </li>
         </ul>
     </nav>
