@@ -13,9 +13,6 @@
         <div class="contact-us-content">
 
             <div class="slider-content">
-                <div class="search-input">
-                    <input type="text" id="search-input" placeholder="Search by product name...">
-                </div>
                 <div class="parallax-slide banner-slide paralax-data" style='background:url("{{ asset('images/img/product-listing-banner.jpg') }}")'></div>
 
 

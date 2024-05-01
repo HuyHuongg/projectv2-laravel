@@ -188,6 +188,7 @@ class OrderController extends Controller
         return view('admin.ordList', compact('pendingOrders'));
     }
 
+
     public function showInvoice()
     {
         // Lấy đơn hàng cuối cùng

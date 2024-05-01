@@ -174,6 +174,19 @@
                                 </tbody>
                             </table>
                         </div>
+                        <div class="last-step" style="display:flex; justify-content:space-between">
+                            <div class="fw-tks">
+                                <!-- <h3>Thanks for buying in our store <br> See you again</h3> -->
+                            </div>
+                            <div class="qr-code" style="float:right;">
+                                <h6 style="font-weight: bold;">(Ten stk)</h6>
+                                <img src="{{ asset('images/qr_img.png') }}" alt="qrpayment" width="150px">
+                                <p><strong>
+                                        Note: If you tranfer by <br> QR Code, input your <br> Order ID + Phone Number <br> (It will take a <br>few minutes to access Payment)
+                                    </strong>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -182,15 +195,27 @@
 
     <script>
         // Check if localStorage exists
+        function formatCurrency(amount) {
+            // Convert the number to a string and add currency unit
+            const formatter = new Intl.NumberFormat('vi-VN', {
+                style: 'currency',
+                currency: 'VND',
+                currencyDisplay: 'code', // Display currency code instead of symbol
+                minimumFractionDigits: 0
+            });
+            return formatter.format(amount).replace('₫', 'VND');
+        }
+
+        // Check if localStorage exists
         if (localStorage) {
             var invoiceDataStr = localStorage.getItem('invoiceData');
 
             if (invoiceDataStr) {
                 var invoiceData = JSON.parse(invoiceDataStr);
 
-
                 var customerInfoDiv = document.querySelector('.col-xs-6');
                 if (customerInfoDiv) {
+                    // Update customer information
                     customerInfoDiv.innerHTML += "<p><strong>Name: </strong>" + invoiceData.name + "</p>";
                     customerInfoDiv.innerHTML += "<p><strong>Email: </strong>" + invoiceData.email + "</p>";
                     customerInfoDiv.innerHTML += "<p><strong>Phone: </strong>" + invoiceData.phone + "</p>";
@@ -202,6 +227,7 @@
                 var invoiceTableBody = document.querySelector('.table-condensed tbody');
 
                 if (invoiceTableBody && invoiceData.product) {
+                    // Populate invoice table with product data
                     invoiceTableBody.innerHTML = '';
                     var totalOrderPrice = 0;
                     for (var i = 0; i < invoiceData.product.length; i++) {
@@ -276,47 +302,37 @@
             console.log("Your browser does not support localStorage.");
         }
 
-        // Function to format currency
-        function formatCurrency(amount) {
-            // Convert the number to a string and add currency unit
-            const formatter = new Intl.NumberFormat('vi-VN', {
-                style: 'currency',
-                currency: 'VND',
-                currencyDisplay: 'code', // Display currency code instead of symbol
-                minimumFractionDigits: 0
-            });
-            return formatter.format(amount).replace('₫', 'VND');
+        // Check order status and handle accordingly
+        var orderStatus = "{{ $status_order }}"; // Get the order status from PHP
+
+        // Save the order status to localStorage
+        localStorage.setItem('orderStatus', orderStatus);
+
+        // Check and handle when order status is updated
+        if (orderStatus === "success") {
+            // Display a success message for placing the order
+            alert("Đơn hàng đã được đặt thành công.");
+
+            // Remove data from localStorage
+            localStorage.removeItem('invoiceData');
+            localStorage.removeItem('orderStatus');
+
+            // Redirect user to the home page
+            window.location.href = '{{ route("frontend.home") }}'; // Change the URL as needed
         }
 
+        // Handle button click to manage orders
         document.getElementById('myOrderManageBtn').addEventListener('click', function() {
-            // Lấy số điện thoại từ invoiceData.phone
+            // Get phone number from invoiceData.phone
             var phoneNumber = invoiceData.phone;
 
             if (phoneNumber) {
-                // Chuyển hướng đến route mới với số điện thoại làm tham số
+                // Redirect to a new route with phone number as parameter
                 window.location.href = '{{ route("frontend.orders", ["phone" => ":phone"]) }}'.replace(':phone', phoneNumber);
             } else {
                 alert("Phone number not found in invoiceData.");
             }
         });
-
-        var orderStatus = "{{ $status_order }}"; // Lấy giá trị trực tiếp từ PHP
-
-        // Lưu giá trị Order Status vào localStorage
-        localStorage.setItem('orderStatus', orderStatus);
-
-        // Kiểm tra và xử lý khi orderStatus được cập nhật
-        if (orderStatus === "success") {
-            // Hiển thị thông báo đơn hàng đặt thành công
-            alert("Đơn hàng đã được đặt thành công.");
-
-            // Xoá dữ liệu từ localStorage
-            localStorage.removeItem('invoiceData');
-            localStorage.removeItem('orderStatus');
-
-            // Chuyển hướng người dùng về trang chính
-            window.location.href = '{{ route("frontend.home") }}'; // Thay đổi đường dẫn nếu cần thiết
-        }
     </script>
 </body>
 

@@ -39,8 +39,7 @@
             <div class="sidebar-wrapper">
                 <div class="logo">
                     <a href="{{ route('admin.dashboard') }}" class="simple-text">
-                        HTH SHOP
-                    </a>
+                        {{ asset('images/logosneaker.png') }}</a>
                 </div>
                 <ul class="nav">
                     <li>

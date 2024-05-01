@@ -34,6 +34,9 @@
             <li class="nav-item main-item">
                 <a class="nav-link nav-appear" href="{{route('frontend.contact')}}">Contact Us</a>
             </li>
+            <li class="nav-item main-item">
+                <a class="nav-link nav-appear" href="{{route('frontend.fmo')}}">Find My Order</a>
+            </li>
         </ul>
     </nav>
     <div class="side-footer">
