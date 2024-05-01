@@ -32,13 +32,23 @@ class LoginController extends Controller
             'name' => 'required|string',
             'password' => 'required|string',
         ]);
+
+        // Check if the user exists
         $user = User::where('name', $credentials['name'])->first();
-        if (!$user || !Hash::check($credentials['password'], $user->password)) {
-            // If the user does not exist or the password is incorrect
+        if (!$user) {
             return redirect()->route('login')->withErrors([
-                'name' => 'User name/ password maybe incorrect, please check again.',
+                'name' => 'Your account hasn\'t been registered in our system, please check again.',
             ]);
         }
+
+        // Proceed with login attempt if user exists
+        if (!Hash::check($credentials['password'], $user->password)) {
+            // If the password is incorrect
+            return redirect()->route('login')->withErrors([
+                'name' => 'User name/ password maybe incorrect, Please check again.',
+            ]);
+        }
+
         // Attempt to authenticate the user
         if (Auth::attempt($credentials)) {
             // Get the authenticated user
@@ -49,6 +59,14 @@ class LoginController extends Controller
                 Auth::logout(); // Log out the user
                 return redirect()->route('login')->withErrors([
                     'name' => 'Tài khoản của bạn chưa được kích hoạt.',
+                ]);
+            }
+
+            // Check if the user is not admin or seller
+            if ($user->role === 'user') {
+                Auth::logout(); // Log out the user
+                return redirect()->route('login')->withErrors([
+                    'name' => 'Your account was not activated.Please contact your administrator.',
                 ]);
             }
 
@@ -67,6 +85,8 @@ class LoginController extends Controller
             'name' => 'Tên người dùng hoặc mật khẩu không đúng.',
         ]);
     }
+
+
 
     /**
      * Log the user out of the application.

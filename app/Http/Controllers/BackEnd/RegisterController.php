@@ -47,6 +47,6 @@ class RegisterController extends Controller
             'role' => 'user', // Set default role to 'user'
         ]);
 
-        return redirect()->route('login')->with('success', 'Your account has been created! Please login.');
+        return redirect()->route('login')->with('success', 'Your account has been created! Please waiting adminstrator access.');
     }
 }
