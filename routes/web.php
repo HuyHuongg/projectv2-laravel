@@ -21,7 +21,7 @@ Route::get('/blog', [HomeFE::class, 'blog'])->name('frontend.blog');
 Route::get('/productdetails', [HomeFE::class, 'productdetails'])->name('frontend.productdetails');
 Route::get('/product/{id}',  [HomeFE::class, 'show'])->name('frontend.productdetails');
 
-Route::get('/check-brands', [ProductController::class, 'checkBrands']);
+Route::get('/search-products', 'ProductController@searchProducts')->name('search-products');
 
 //order
 Route::post('/order-submit', [OrderController::class, 'createOrder'])->name('frontend.checkout.submit');
@@ -91,4 +91,5 @@ Route::get('/order-details', function () {
     $orderDetails = OrderDetail::all();
     return view('order-details', ['orderDetails' => $orderDetails]);
 });
-Route::ANY('{catchall}', [PageController::class, 'notfound'])->where('catchall', '.*');
+
+Route::get('/orders/{phone}', [OrderController::class, 'showByPhone'])->name('frontend.orders');

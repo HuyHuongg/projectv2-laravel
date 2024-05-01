@@ -26,6 +26,23 @@ class ProductController extends Controller
         return view('admin.dashboard', compact('products', 'user', 'selectedBrand'));
     }
 
+    public function searchProducts(Request $request)
+    {
+        $search = $request->input('search');
+
+        // Perform the search query using the Product model
+        $products = Product::where('Name_sneaker', 'like', "%$search%")->get();
+
+        // Check if any products were found
+        if ($products->isEmpty()) {
+            // Return a response indicating that no products were found
+            return response()->json(['message' => 'No products found']);
+        }
+
+        // Return the filtered products
+        return response()->json(['products' => $products]);
+    }
+
 
     public function addImage()
     {

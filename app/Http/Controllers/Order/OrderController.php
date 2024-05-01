@@ -28,6 +28,40 @@ class OrderController extends Controller
         }
         return redirect()->route('user.orderList')->with('success', 'Update Error');
     }
+
+    public function showByPhone($phone)
+    {
+        // Tìm khách hàng dựa trên số điện thoại
+        $customer = Customer::where('phone', $phone)->first();
+
+        // Kiểm tra xem khách hàng có tồn tại hay không
+        if (!$customer) {
+            // Xử lý trường hợp không tìm thấy khách hàng
+            return redirect()->route('frontend.home')->with('error', 'Không tìm thấy khách hàng với số điện thoại này.');
+        }
+
+        // Lấy tên của khách hàng
+        $customerName = $customer->Name_customer;
+
+        // Tìm các đơn hàng của khách hàng dựa trên customer_id
+        $orderIds = Order::where('customer_id', $customer->id)->pluck('order_id');
+
+        // Tìm các chi tiết đơn hàng có order_id trong danh sách orderIds và chọn chỉ các cột order_id và product_id
+        $orders = OrderDetail::whereIn('order_id', $orderIds)
+            ->with('product', 'size') // Load relationship với product và size
+            ->get();
+
+        // Trả về trạng thái của các đơn hàng
+        $status = $orders->pluck('order.status_order');
+
+        $sizes = Size::all();
+
+        // Trả về view với dữ liệu khách hàng, số điện thoại và đơn hàng
+        return view('frontend.orders', compact('customer', 'phone', 'orders', 'status'));
+    }
+
+
+
     public function deleteOrder($orderId)
     {
         $order = Order::findOrFail($orderId);
@@ -163,6 +197,7 @@ class OrderController extends Controller
         if ($latestOrder) {
             // Lấy order_id của đơn hàng cuối cùng
             $order_id = $latestOrder->order_id;
+            $order_status = $latestOrder->status_order;
 
             // Lấy thông tin của khách hàng từ đơn hàng cuối cùng
             $customer_name = $latestOrder->customer->Name_customer;
@@ -173,7 +208,7 @@ class OrderController extends Controller
             // Trả về view và truyền order_id và thông tin của khách hàng
             return view('frontend.invoice', [
                 'order_id' => $order_id,
-
+                'status_order' => $order_status,
                 'customer_name' => $customer_name,
                 'customer_email' => $customer_email,
                 'customer_address' => $customer_address,

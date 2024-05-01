@@ -13,7 +13,9 @@
         <div class="contact-us-content">
 
             <div class="slider-content">
-
+                <div class="search-input">
+                    <input type="text" id="search-input" placeholder="Search by product name...">
+                </div>
                 <div class="parallax-slide banner-slide paralax-data" style='background:url("{{ asset('images/img/product-listing-banner.jpg') }}")'></div>
 
 
@@ -33,12 +35,13 @@
                                     </ul>
                                 </div>
                                 <div class="product-price">
-                                    <h5 class="filter-heading">Shop By</h5>
-                                    <div id="slider-range"></div>
-                                    <p class="price-num" style="color: #0b2e13;">Price: <span id="min-p"></span> <span id="max-p"></span></p>
+                                    <div class="search-input">
+                                        <input type="text" id="search-input" placeholder="Search by product name..." style="color: black;">
+                                    </div>
                                 </div>
 
-                                <button class="btn our-btn btn-gradient rounded-pill d-block ml-auto mr-auto ml-lg-0">Filter</button>
+                                <button id="search-btn" class="btn our-btn btn-gradient rounded-pill d-block ml-auto mr-auto ml-lg-0">Search</button>
+
 
                                 <div class="product-add">
                                     <div class="row no-gutters">
@@ -81,7 +84,7 @@
                                                     <img src="{{ asset($product->Image) }}" alt="images">
                                                     <div class="p-item-overlay text-center d-flex justify-content-center align-items-center">
                                                         <div class="btn-container">
-                                                            <a class="btn our-btn q-btn rounded-pill" href="{{ route('frontend.productdetails', $product->id) }}" onclick="open_model_window1('model-window5');">QUICK VIEW</a>
+                                                            <a class="btn our-btn q-btn rounded-pill" href="{{ route('frontend.productdetails', $product->id) }}" onclick="open_model_window1('model-window5');">View Details</a>
                                                         </div>
 
                                                     </div>
@@ -179,6 +182,37 @@
             // Show only the products with the selected brand
             $('.product[data-brand="' + brand + '"]').show();
         });
+    });
+
+    $(document).ready(function() {
+        // Function to filter products by name
+        function searchProductsByName() {
+            var searchText = $('#search-input').val().trim();
+
+            // Make an AJAX request to the backend to search for products
+            $.ajax({
+                url: '/search-products',
+                type: 'GET',
+                data: {
+                    search: searchText
+                },
+                success: function(response) {
+                    if ('products' in response && response.products.length > 0) {
+                        // Replace the product list with the filtered products returned from the backend
+                        $('.product-list').html(response);
+                    } else {
+                        // Display a message indicating that no products were found
+                        $('.product-list').html('<p>No products found</p>');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
+        }
+
+        // Call the search function when the search button is clicked
+        $('#search-btn').click(searchProductsByName);
     });
 </script>
 <!--START LOAD MODEL WINDOW-->

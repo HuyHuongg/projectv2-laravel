@@ -14,4 +14,9 @@ class OrderDetail extends Model
     {
         return $this->belongsTo(Product::class, 'product_id');
     }
+
+    public function size()
+    {
+        return $this->belongsTo(Size::class);
+    }
 }

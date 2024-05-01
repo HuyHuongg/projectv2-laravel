@@ -121,6 +121,7 @@
 
         </div>
         <script>
+            
             document.addEventListener("DOMContentLoaded", function() {
                 // Lấy thông tin từ localStorage
                 let products = localStorage.getItem("cartItems");
@@ -213,7 +214,7 @@
                     localStorage.setItem("invoiceData", JSON.stringify(invoiceData));
 
                     localStorage.removeItem("cartItems");
-
+                    alert('Your order has been placed successfully. Please check your status order.')
                     this.submit();
                 });
 
