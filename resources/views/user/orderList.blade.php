@@ -31,27 +31,28 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="{{ asset('assets/css/pe-icon-7-stroke.css') }}" rel="stylesheet" />
 
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
+    <link href="https://cdn.datatables.net/responsive/3.0.2/css/responsive.bootstrap4.css" />
+    <link href="https://cdn.datatables.net/2.0.5/css/dataTables.bootstrap4.css" />
+    <style>
+        .dt-info,
+        .dt-length {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
 
     <div class="wrapper">
         <div class="sidebar" data-color="purple" data-image="{{ asset('assets/img/sidebar-5.jpg') }}">
-
-            <!--
-
-        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
-        Tip 2: you can also add an image using data-image tag
-
-    -->
-
             <div class="sidebar-wrapper">
                 <div class="logo">
                     <a href="{{ route('admin.dashboard') }}" class="simple-text">
                         HTH SHOP
                     </a>
                 </div>
-
                 <ul class="nav">
                     <li>
                         <a href="{{ route('admin.dashboard') }}">
@@ -75,12 +76,6 @@
                         <a href="/admin/product">
                             <i class="pe-7s-shopbag"></i>
                             <p>Products</p>
-                        </a>
-                    </li>
-                    <li class="active-pro">
-                        <a href="#">
-                            <i class="pe-7s-rocket"></i>
-                            <p>Upgrade to PRO</p>
                         </a>
                     </li>
                 </ul>
@@ -107,29 +102,6 @@
                                     <p class="hidden-lg hidden-md">Dashboard</p>
                                 </a>
                             </li>
-                            <!-- <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-globe"></i>
-                                    <b class="caret hidden-lg hidden-md"></b>
-                                    <p class="hidden-lg hidden-md">
-                                        5 Notifications
-                                        <b class="caret"></b>
-                                    </p>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Notification 1</a></li>
-                                    <li><a href="#">Notification 2</a></li>
-                                    <li><a href="#">Notification 3</a></li>
-                                    <li><a href="#">Notification 4</a></li>
-                                    <li><a href="#">Another notification</a></li>
-                                </ul>
-                            </li> -->
-                            <!-- <li>
-                                <a href="">
-                                    <i class="fa fa-search"></i>
-                                    <p class="hidden-lg hidden-md">Search</p>
-                                </a>
-                            </li> -->
                         </ul>
 
                         <ul class="nav navbar-nav navbar-right">
@@ -168,26 +140,25 @@
             </nav>
 
 
+
             <div class="content">
                 <h1 class="container">Pending Orders</h1>
                 <div class="container">
-                    <table id="example" class="display table table table-hover">
+                    <table id="example" class="table table-striped table-bordered nowrap" style="width:100%">
                         <thead>
                             <tr>
-                                <!-- <th scope="col">Order ID</th> -->
-                                <th scope="col">Customer Name</th>
-                                <th scope="col">Phone</th>
-                                <th scope="col">Address</th>
-                                <th scope="col">Product</th>
-                                <th scope="col">total</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Action</th>
+                                <th scope="col">Customer Name: </th>
+                                <th scope="col">Phone: </th>
+                                <th scope="col">Address: </th>
+                                <th scope="col">Product: </th>
+                                <th scope="col">Total (VND): </th>
+                                <th scope="col">Status: </th>
+                                <th scope="col">Action: </th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($pendingOrders as $order)
                             <tr>
-                                <!-- <td>{{ $order->order_id }}</td> -->
                                 <td>{{ $order->customer->Name_customer }}</td>
                                 <td>{{ $order->customer->phone }}</td>
                                 <td>{{ $order->customer->address }}</td>
@@ -200,7 +171,7 @@
                                     </div>
                                     @endforeach
                                 </td>
-                                <td>{{ $order->total_amount }}</td>
+                                <td>{{ number_format($order->total_amount, 0, ',', '.') }}</td>
                                 <td>{{ $order->status_order }}</td>
                                 <td>
                                     <form action="/admin/orders/{{ $order->order_id }}/delete-order" method="GET">
@@ -220,32 +191,34 @@
                     </table>
                 </div>
                 <script src="{{ asset('js/orderList.js') }}"></script>
-                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+                <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+                <script src="https://cdn.datatables.net/2.0.5/js/dataTables.js"></script>
+                <script src="https://cdn.datatables.net/2.0.5/js/dataTables.bootstrap4.js"></script>
+                <script src="https://cdn.datatables.net/responsive/3.0.2/js/dataTables.responsive.js"></script>
+                <script src="https://cdn.datatables.net/responsive/3.0.2/js/responsive.bootstrap4.js"></script>
                 <script>
-                    $(document).ready(function() {
-                        $('#example').DataTable({
-                            searching: true,
-                            paging: true,
-                            ordering: true,
-                            info: true,
-                            lengthChange: true,
-                            autoWidth: false,
-                            columnDefs: [{
-                                    targets: [2],
-                                    searchable: true
-                                },
-                                {
-                                    targets: '_all',
-                                    searchable: false
-                                }
-                            ]
-                        });
+                    $('#example').DataTable({
+                        responsive: true,
+                        searching: true,
+                        paging: true,
+                        ordering: true,
+                        info: true,
+                        lengthChange: true,
+                        autoWidth: false,
+                        columnDefs: [{
+                                targets: [1],
+                                searchable: true
+                            },
+                            {
+                                targets: '_all',
+                                searchable: false
+                            }
+                        ]
                     });
                 </script>
             </div>
-
-
             <footer class="footer">
                 <div class="container-fluid">
                     <nav class="pull-left">
@@ -279,7 +252,6 @@
                     </p>
                 </div>
             </footer>
-
         </div>
     </div>
 
@@ -334,7 +306,5 @@ $successMessage = session('success');
         }
     });
 </script>
-
-
 
 </html>

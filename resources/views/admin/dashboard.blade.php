@@ -37,21 +37,12 @@
 
     <div class="wrapper">
         <div class="sidebar" data-color="purple" data-image="{{ asset('assets/img/sidebar-5.jpg') }}">
-
-            <!--
-
-        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
-        Tip 2: you can also add an image using data-image tag
-
-    -->
-
             <div class="sidebar-wrapper">
                 <div class="logo">
                     <a href="{{ route('admin.dashboard') }}" class="simple-text">
                         HTH SHOP
                     </a>
                 </div>
-
                 <ul class="nav">
                     <li class="active">
                         <a href="{{ route('admin.dashboard') }}">
@@ -75,12 +66,6 @@
                         <a href="/admin/product">
                             <i class="pe-7s-shopbag"></i>
                             <p>Products</p>
-                        </a>
-                    </li>
-                    <li class="active-pro">
-                        <a href="#">
-                            <i class="pe-7s-rocket"></i>
-                            <p>Upgrade to PRO</p>
                         </a>
                     </li>
                 </ul>
